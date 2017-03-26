@@ -12,6 +12,7 @@ git clone https://github.com/nagexiucai/website.git /home/www
 chown www:www /home/www -R
 # 给工程目录下所有php添加可读可执行权限
 # 给工程目录下其余文件只赋予可读权限
+cp -f /home/www/website/my.cnf /etc
 cp -f /home/www/website/server.cnf /etc/my.cnf.d
 cp -f /home/www/website/php.ini /etc
 cp -f /home/www/website/www.conf /etc/php-fpm.d
@@ -24,6 +25,13 @@ systemctl start php-fpm
 systemctl start nginx
 read -t 30  -p "设置数据库ROOT账户密码：" PASSWORD
 mysqladmin -u root password $PASSWORD
+# mysql -u root -p
+# <== $PASSWORD
+# use mysql;
+# update user set host='%' where user='root';
+# flush privileges;
+# exit;
+systemctl restart mariadb
 echo "请自行添加到website的DNS！"
 echo "切记数据库ROOT账户密码！"
 echo "Good Job:)"
