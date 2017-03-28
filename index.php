@@ -1,49 +1,36 @@
 <?php
 // https://github.com/nagexiucai/website
-echo "<!DOCTYPE html>";
-echo "<html>";
-echo "<head>";
-echo "<meta charset='UTF-8'>";
-echo "<title>";
-echo "那个秀才";
-echo "</title>";
-echo "</head>";
-echo "<body>";
-const BLOG = "zhouguoqiang.cn";
-const EBIZ = "hongnong.wang";
-const OFFICIAL = "nagexiucai.com";
-const TECH = "thisstack.com";
-const TOUR = "pahuashan.com";
 
-$SITE = implode(".", array_slice(explode(".", $_SERVER["HTTP_HOST"]), -2));
-echo $SITE."<br/>";
+class Index {
+    public $BLOG = "zhouguoqiang.cn";
+    public $EBIZ = "hongnong.wang";
+    public $OFFICIAL = "nagexiucai.com";
+    public $TECH = "thisstack.com";
+    public $TOUR = "pahuashan.com";
 
-switch($SITE) {
-    case BLOG:
-        echo BLOG."<br/>";
-        break;
-    case EBIZ:
-        echo EBIZ."<br/>";
-        break;
-    case OFFICIAL:
-        echo OFFICIAL."<br/>";
-        beak;
-    case TECH:
-        echo TECH."<br/>";
-        break;
-    case TOUR:
-        echo TOUR."<br/>";
-        break;
-    default:
-        echo "unknown domain:(<br/>";
+    function route() {
+        $base = dirname(__FILE__);
+        switch(implode(".", array_slice(explode(".", $_SERVER["HTTP_HOST"]), -2))) {
+            case $this->BLOG:
+                include $base."backend/blog/blog.php";
+                break;
+            case $this->EBIZ:
+                include "backend/ebiz/ebiz.php";
+                break;
+            case $this->OFFICIAL:
+                include "backend/official/official.php";
+                break;
+            case $this->TECH:
+                include "backend/tech/tech.php";
+                break;
+            case $this->TOUR:
+                include "backend/tour/tour.php";
+                break;
+            default:
+                include $base."/html";
+        }
+    }
 }
 
-echo '<img src="frontend/common/test.png"><br/>';
-echo '<a href="/test.php">test</a>';
-// echo function_exists("ftp_connect");
-// echo function_exists("gzopen");
-// echo function_exists("getimagesize");
-// phpinfo();
-// http://php.net/manual/zh/resource.php
-echo "</body>";
-echo "</html>";
+$index = new Index();
+$index->route();
