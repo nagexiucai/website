@@ -15,7 +15,7 @@ const OFFICIAL = "nagexiucai.com";
 const TECH = "thisstack.com";
 const TOUR = "pahuashan.com";
 
-$SITE = $_SERVER["HTTP_HOST"];
+$SITE = implode(".", array_slice(explode(".", $_SERVER["HTTP_HOST"]), -2));
 echo $SITE."<br/>";
 
 switch($SITE) {
@@ -39,6 +39,7 @@ switch($SITE) {
 }
 
 echo '<img src="frontend/common/test.png"><br/>';
+echo '<a href="/test.php">test</a>';
 // echo function_exists("ftp_connect");
 // echo function_exists("gzopen");
 // echo function_exists("getimagesize");
