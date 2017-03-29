@@ -9,25 +9,24 @@ class Index {
     public $TOUR = "pahuashan.com";
 
     function route() {
-        $base = dirname(__FILE__);
         switch(implode(".", array_slice(explode(".", $_SERVER["HTTP_HOST"]), -2))) {
             case $this->BLOG:
-                include $base."backend/blog/blog.php";
+                include "./backend/blog/blog.php";
                 break;
             case $this->EBIZ:
-                include "backend/ebiz/ebiz.php";
+                include "./backend/ebiz/ebiz.php";
                 break;
             case $this->OFFICIAL:
-                include "backend/official/official.php";
+                include "./backend/official/official.php";
                 break;
             case $this->TECH:
-                include "backend/tech/tech.php";
+                include "./backend/tech/tech.php";
                 break;
             case $this->TOUR:
-                include "backend/tour/tour.php";
+                include "./backend/tour/tour.php";
                 break;
             default:
-                include $base."/html";
+                include "./index.html";
         }
     }
 }
