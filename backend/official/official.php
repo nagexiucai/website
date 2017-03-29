@@ -7,10 +7,9 @@ class Official extends Bra {
 
     public function __construct()
     {
-        parent::__construct();
-        $this->link = "<link type='txt/css' src='./frontend/common/fullscreen.css'>";
-        $this->script = "<script type='txt/javascript' src='./frontend/common/browser-percept.js'></script>";
-        $this->content = "<div class='fullscreen'>$this->BASE<br/>$this->CWD</div>";
+        $this->link = "<link rel='stylesheet' type='text/css' href='/frontend/official.css'>";
+        $this->script = "<script type='text/javascript' src='/frontend/official.js'></script>";
+        $this->content = "<div class='fullscreen'><div id='logo'></div><div id='menu'></div><div id='show'></div><div id='friend'></div></div>";
     }
 }
 

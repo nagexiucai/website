@@ -1,6 +1,13 @@
 <?php
 // https://github.com/nagexiucai/website
 
+//include "./backend/blog/blog.php";
+//include "./backend/ebiz/ebiz.php";
+//include "./backend/tech/tech.php";
+//include "./backend/tour/tour.php";
+include "./backend/official/official.php";
+exit();
+
 class Root {
     public $name = "/";
     function __construct()
