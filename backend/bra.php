@@ -6,9 +6,10 @@ class Bra {
     const MIIT = "<div id='miit'><a href='http://www.miitbeian.gov.cn/'>陕ICP备14011708号</a></div>";
     public $meta="<meta charset='UTF-8'>";
     public $link="";
-    public $script="";
+    public $hscript="";
     public $title="<title>那个秀才</title>";
     public $content="欢迎来到那个秀才的站点！<br/>";
+    public $bscript="";
 
     function html() {
         echo "<html>";
@@ -23,7 +24,7 @@ class Bra {
         echo "<link rel='stylesheet' type='text/css' href='/frontend/common/fullscreen.css'>";
         echo "<script type='text/javascript' src='/frontend/common/browser-percept.js'></script>";
         echo $this->link;
-        echo $this->script;
+        echo $this->hscript;
         echo $this->title;
         echo "</head>";
     }

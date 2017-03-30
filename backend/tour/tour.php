@@ -8,7 +8,7 @@ class Tour extends Bra {
     public function __construct()
     {
         $this->link = "<link rel='stylesheet' type='text/css' href='/frontend/tour.css'>";
-        $this->script = "<script type='text/javascript' src='/frontend/tour.js'></script>";
+        $this->hscript = "<script type='text/javascript' src='/frontend/tour.js'></script>";
         $this->content = "<div class='fullscreen'><div id='photowall'></div></div>";
     }
 }
