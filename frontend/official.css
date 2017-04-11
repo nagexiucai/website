@@ -1,1 +1,18 @@
 /* https://github.com/nagexiucai/website */
+
+#logo {
+    background:url(/frontend/common/police.png);
+    display:list-item;
+}
+
+li {
+    float:right;
+    list-style:square inside url('/frontend/common/police.png');
+}
+
+.fade-enter, .fade-enter-active {
+    transition:opacity .5s;
+}
+.fade-leave, .fade-leave-active {
+    transition:opacity .5s;
+}
