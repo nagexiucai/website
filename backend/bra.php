@@ -15,6 +15,7 @@ class Bra {
         echo "<html>";
         $this->head();
         $this->body();
+        echo $this->bscript;
         echo "</html>";
     }
     function head() {
@@ -30,7 +31,12 @@ class Bra {
     }
     function body() {
         echo "<body id='body'>";
-        echo $this->content;
+        if (is_file($this->content)) {
+            include $this->content;
+        }
+        else {
+            echo $this->content;
+        }
         echo self::MIIT;
         echo "</body>";
     }

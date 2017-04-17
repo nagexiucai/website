@@ -7,9 +7,14 @@ class Index {
     public static $OFFICIAL = "nagexiucai.com";
     public static $TECH = "thisstack.com";
     public static $TOUR = "pahuashan.com";
+    public static $TEST = "website.local";
 
     function route() {
-        switch(implode(".", array_slice(explode(".", $_SERVER["HTTP_HOST"]), -2))) {
+        $domain = implode(".", array_slice(explode(".", $_SERVER["HTTP_HOST"]), -2));
+        if ($domain == self::$TEST) {
+            $domain = $_GET["target"];
+        }
+        switch ($domain) {
             case self::$BLOG:
                 include "./backend/blog/blog.php";
                 break;

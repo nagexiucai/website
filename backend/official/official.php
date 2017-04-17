@@ -9,7 +9,7 @@ class Official extends Bra {
     {
         $this->link = "<link rel='stylesheet' type='text/css' href='/frontend/official.css'>";
         $this->hscript = "<script src='https://unpkg.com/vue/dist/vue.js'></script>";
-        $this->content = "<div class='fullscreen'><p>Waiting for More...</p><hr/><p><a href='/iot.html'>IOT技术栈</a>&nbsp;&nbsp;<a href='/in-the-name-of-people.html'>人民的名义简谱</a></p><hr/><p>me@nagexiucai.com</p><div id='logo'></div><div id='menu'></div><div id='show'>{{message}}</div><div id='friend'></div></div>";
+        $this->content = "./backend/official/official.template";
         $this->bscript = "<script type='text/javascript' src='/frontend/official.js'></script>";
     }
 }

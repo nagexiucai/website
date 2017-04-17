@@ -4,37 +4,11 @@
         <link rel='icon' type='image/x-icon' href='/frontend/common/favicon.ico'>
         <link rel='stylesheet' type='text/css' href='/frontend/common/fullscreen.css'>
         <script type='text/javascript' src='/frontend/common/browser-percept.js'></script>
-        <link rel='stylesheet' type='text/css' href='/frontend/official.css'>
         <script src='https://unpkg.com/vue/dist/vue.js'></script>
         <title>那个秀才</title>
     </head>
     <body id='body'>
-        <div class='fullscreen'>
-            <div id='logo' v-if='seen'></div>
-            <div id='menu'>
-                <transition name='fade'>
-                    <span v-on:click='reverseMessage' v-if='show' v-bind:title='message'>悬停几秒就可以看到提示</span>
-                </transition>
-                <button v-on:click='show=!show'>toggle</button>
-                <ul>
-                    <li v-for='item in items' v-bind:id='item.id'>{{item.text}}</li>
-                </ul>
-            </div>
-            <div id='show'>{{message}}</div>
-            <div id='friend'>
-                <p>{{things}}</p>
-                <input v-model='things'>
-            </div>
-        </div>
-        <div id='the4classics'>
-            <ol><list-item v-for='item in srcList' v-bind:item='item' :key='item.id'></list-item></ol>
-        </div>
-        <div id='miit'>
-            <a href='http://www.miitbeian.gov.cn/' target="_blank">陕ICP备14011708号-1</a>
-        </div>
-        <p>第一章</p>
-        <p><span>第一节</span>&nbsp;&nbsp;&nbsp;&nbsp;<span>第二节</span></p>
-        <p>第二章</p>
+        <div class='fullscreen'></div>
+        <div id='miit'><a href='http://www.miitbeian.gov.cn/' target="_blank">陕ICP备14011708号-1</a></div>
     </body>
-    <script type='text/javascript' src='/frontend/official.js'></script>
 </html>
