@@ -10,8 +10,7 @@ groupadd www
 adduser www -g www
 git clone https://github.com/nagexiucai/website.git /home/www
 chown www:www /home/www -R
-# 给工程目录下所有php添加可读可执行权限
-# 给工程目录下其余文件只赋予可读权限
+# 工程目录下所有文件夹755
 cp -f /home/www/website/my.cnf /etc
 cp -f /home/www/website/server.cnf /etc/my.cnf.d
 cp -f /home/www/website/php.ini /etc
