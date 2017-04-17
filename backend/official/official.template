@@ -1,14 +1,15 @@
-<div class='fullscreen'>
+<div class="fullscreen">
     <p>Waiting for More...</p>
     <hr/>
     <p>
-        <a href='/iot.html'>IOT技术栈</a>
-        <a href='/in-the-name-of-people.html'>人民的名义简谱</a>
+        <a href="/iot.html" alt="IOT">IOT技术栈</a>
+        <a href="/in-the-name-of-people.html" alt="in the name of people">人民的名义简谱</a>
+        <a href="/" alt="heroes among the three kingdoms">三国英雄传</a>
     </p>
     <hr/>
     <p>me@nagexiucai.com</p>
-    <div id='logo'></div>
-    <div id='menu'></div>
-    <div id='show'>{{message}}</div>
-    <div id='friend'></div>
+    <div id="logo"></div>
+    <div id="menu"></div>
+    <div id="show">{{message}}</div>
+    <div id="friend"></div>
 </div>
