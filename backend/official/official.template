@@ -1,9 +1,13 @@
 <div class="fullscreen">
-    <div id="logo">
-        <a href="/"><img src="/frontend/material-library/logo-official.png" alt="logo"/></a>
+    <div id="navigator">
+        <a href="/">首页</a>
+        <a href="javascript:topic();">话题</a>
+        <a href="http://github.com/nagexiucai/" target="_blank">项目</a>
+        <a href="/about.php" target="_blank">关于</a>
+        <div id="topic" style="display:none;">
+            <p><a href="/iot.html" target="_blank">IOT技术栈</a></p>
+            <p><a href="/in-the-name-of-people.html" target="_blank">人民的名义简谱</a></p>
+        </div>
     </div>
-    <div id="topic">
-        <a href="/iot.html">IOT技术栈</a>
-        <a href="/in-the-name-of-people.html">人民的名义简谱</a>
-    </div>
+    <canvas id="scratch" style="width:400px;height:400px;"></canvas>
 </div>

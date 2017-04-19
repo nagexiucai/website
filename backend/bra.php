@@ -3,7 +3,7 @@
 
 class Bra {
     const DOCTYPE = "<!DOCTYPE html>";
-    const MIIT = "<div id='miit'><a href='http://www.miitbeian.gov.cn/'>陕ICP备14011708号-1</a></div>";
+    const MIIT = "<div id='miit'><a href='http://www.miitbeian.gov.cn/' target='_blank'>陕ICP备14011708号-1</a></div>";
     public $meta="<meta charset='UTF-8'>";
     public $link="";
     public $hscript="";

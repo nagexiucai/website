@@ -8,7 +8,7 @@ class Official extends Bra {
     public function __construct()
     {
         $this->link = "<link rel='stylesheet' type='text/css' href='/frontend/official.css'>";
-        $this->hscript = "<script src='/frontend/common/vue.js'></script>";
+        $this->hscript = "<script type='text/javascript' src='/frontend/common/verlet.js'></script>";
         $this->content = "./backend/official/official.template";
         $this->bscript = "<script type='text/javascript' src='/frontend/official.js'></script>";
     }

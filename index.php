@@ -1,6 +1,8 @@
 <?php
 // https://github.com/nagexiucai/website
 
+require "./backend/utils.php";
+
 class Index {
     public static $BLOG = "zhouguoqiang.cn";
     public static $EBIZ = "hongnong.wang";
@@ -11,7 +13,7 @@ class Index {
     public static $Local = "test.local";
 
     function route() {
-        $domain = implode(".", array_slice(explode(".", $_SERVER["HTTP_HOST"]), -2));
+        $domain = get_domain();
         if ($domain == self::$Remote || $domain == self::$Local) {
             $domain = $_GET["target"];
         }
