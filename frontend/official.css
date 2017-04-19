@@ -4,19 +4,6 @@ a {
     text-decoration: none;
 }
 
-a:link {
-    color: black;
-}
-a:visited {
-    color: gray;
-}
-a:hover {
-    color: blue;
-}
-a:active {
-    color: red;
-}
-
 #navigator {
     z-index: 999;
     position: fixed;
