@@ -7,7 +7,7 @@ class Bra {
     public $meta="<meta charset='UTF-8'>";
     public $link="";
     public $hscript="";
-    public $title="<title>那个秀才</title>";
+    public $title="那个秀才";
     public $content="欢迎来到那个秀才的站点！<br/>";
     public $bscript="";
 
@@ -26,7 +26,7 @@ class Bra {
         echo "<script type='text/javascript' src='/frontend/common/browser-percept.js'></script>";
         echo $this->link;
         echo $this->hscript;
-        echo $this->title;
+        echo "<title>".$this->title."</title>";
         echo "</head>";
     }
     function body() {

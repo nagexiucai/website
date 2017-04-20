@@ -36,6 +36,9 @@ a:hover {
 [id$="-title"] {
     background-color: silver;
     color: black;
+    font-size: 40px;
+}
+[id$="-content"] {
     font-size: 30px;
 }
 
