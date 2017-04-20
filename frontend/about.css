@@ -1,0 +1,45 @@
+/* https://github.com/nagexiucai/website */
+
+#lace {
+    height: 30px;
+    background: url('/frontend/material-library/official-lace.png');
+}
+
+#introduction {
+    height: 30%;
+}
+
+#milestone {
+    height: 30%;
+    overflow-y: auto;
+}
+
+#friend a {
+    display: block;
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
+a {
+    text-decoration: none;
+}
+a:link {
+    color: black;
+}
+a:visited {
+    color: gray;
+}
+a:hover {
+    color: red;
+}
+
+[id$="-title"] {
+    background-color: silver;
+    color: black;
+    font-size: 30px;
+}
+
+p {
+    margin-top: 0;
+    margin-bottom: 0;
+}

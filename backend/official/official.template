@@ -3,7 +3,7 @@
         <a href="/">首页</a>
         <a href="javascript:topic();">话题</a>
         <a href="http://github.com/nagexiucai/" target="_blank">项目</a>
-        <a href="/about.php" target="_blank">关于</a>
+        <a href="/about.php?target=official" target="_blank">关于</a>
         <div id="topic" style="display:none;">
             <p><a href="/iot.html" target="_blank">IOT技术栈</a></p>
             <p><a href="/in-the-name-of-people.html" target="_blank">人民的名义简谱</a></p>
