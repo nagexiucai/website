@@ -13,11 +13,19 @@
     height: 100%;
 }
 
-#miit {
+#beian {
     background-color: black;
 }
 
-#miit a {
+#beian a {
     text-decoration: none;
     color: white;
+}
+
+#beian span {
+    vertical-align: bottom;
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    background-image: url(/frontend/common/police.png);
 }

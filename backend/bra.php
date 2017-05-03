@@ -3,7 +3,7 @@
 
 class Bra {
     const DOCTYPE = "<!DOCTYPE html>";
-    const MIIT = "<div id='miit'><a href='http://www.miitbeian.gov.cn/' target='_blank'>陕ICP备14011708号-1</a></div>";
+    const BEIAN = "<div id='beian'><a href='http://www.miitbeian.gov.cn/' target='_blank'>陕ICP备14011708号-1</a><a href='http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=61019002000333' target='_blank'><span></span>陕公网安备61019002000333号</a></div>";
     public $meta="<meta charset='UTF-8'>";
     public $link="";
     public $hscript="";
@@ -37,7 +37,7 @@ class Bra {
         else {
             echo $this->content;
         }
-        echo self::MIIT;
+        echo self::BEIAN;
         echo "</body>";
     }
 }
