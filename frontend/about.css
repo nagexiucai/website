@@ -14,7 +14,7 @@
     overflow-y: auto;
 }
 
-#friend a {
+.hyperlinklist a {
     display: block;
     margin-top: 5px;
     margin-bottom: 5px;

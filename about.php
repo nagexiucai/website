@@ -21,13 +21,14 @@ class About extends Bra {
     <p id='introduction-title'>简介</p>
     <p id='introduction-content'>IT技术初学者之友。</p>
 </div>
-<div id='milestone'>
+<div id='milestone' class='hyperlinklist'>
     <p id='milestone-title'>大事记</p>
     <p id='milestone-content'>
-        <a href='#miit'>2017-03-23，通过ICP备案！</a>
+        <a href='#beian'>2017-05-03，通过公安部备案！</a>
+        <a href='#beian'>2017-03-23，通过工信部备案！</a>
     </p>
 </div>
-<div id='friend'>
+<div id='friend' class='hyperlinklist'>
     <p id='friend-title'>友站</p>
     <p id='friend-content'>
         <a href='http://hongnong.wang/'>弘农王</a>
