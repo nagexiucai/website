@@ -7,6 +7,7 @@ class Official extends Bra {
 
     public function __construct()
     {
+        $this->title = "那个秀才|官网";
         $this->link = "<link rel='stylesheet' type='text/css' href='/frontend/official.css'>";
         $this->hscript = "<script type='text/javascript' src='/frontend/common/verlet.js'></script>";
         $this->content = "./backend/official/official.template";

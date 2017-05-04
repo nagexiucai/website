@@ -335,3 +335,7 @@ function topic() {
     var topic = document.getElementById('topic');
     topic.style.display = 'block';
 };
+function $topic() {
+    var topic = document.getElementById('topic');
+    topic.style.display = 'none';
+}
