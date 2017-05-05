@@ -15,7 +15,8 @@ function $swf(){
 function powerspectrum(which){
     $swf();
     abstract.style = "display:none;"
-    console.log(which);
+    console.log(which.innerHTML);
+    console.log(which.attributes["src"].nodeValue);
     paper.style = "display:inline-block;";
 }
 
@@ -23,7 +24,8 @@ function powerspectrum(which){
 function esoterica(which){
     paper.style = "display:none;";
     $swf();
-    console.log(which);
+    console.log(which.innerHTML);
+    console.log(which.attributes["src"].nodeValue);
     abstract.style = "display:inline-block;width:480px;height:400px;";
 }
 
@@ -31,7 +33,6 @@ function esoterica(which){
 function art(which){
     paper.style = "display:none;";
     abstract.style = "display:none;";
-    console.log(which.innerHTML);
     var url = "http://player.youku.com/player.php/sid/" + which.attributes["src"].nodeValue + "==/v.swf";
     swf.setAttribute("src", url);
     swf.style = "display:inline-block;";

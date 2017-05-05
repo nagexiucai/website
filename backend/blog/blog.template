@@ -4,7 +4,14 @@
     </div>
     <div id='list'>
         <table width="100%">
-            <caption>人生自古谁无死，愿早日实现愿望！</caption>
+            <caption>
+                <a href="http://blog.sina.com.cn/dukezhousite/">
+吾本众生一蚍蜉，从头到脚五六尺。怀无子建才八斗，身差乞丐碗半只。<br/>
+强作斯文常扫地，妄诩大智近乎痴。壮士姻缘少缘分，铁汉柔情多情丝。<br/>
+寄情山水永乐此，肆意吟唱不疲兹。恨伪愤虚心未改，放形浪骸性难羁。<br/>
+朋友来见笑相戏，江湖人道纯痞子。词穷语尽乏妙句，东拼西凑自嘲诗。<br/>
+                </a>
+            </caption>
             <thead>
                 <tr>
                     <th align="left"></th><th align="center"></th><th align="right"></th>
@@ -14,28 +21,39 @@
                 <tr>
                     <td>
                         <ul>
-                            <li onclick="powerspectrum('python');">Python</li>
-                            <li onclick="powerspectrum('python');">C</li>
-                            <li onclick="powerspectrum('python');">Java</li>
-                            <li onclick="powerspectrum('python');">C++</li>
-                            <li onclick="powerspectrum('python');">Javascript</li>
-                            <li onclick="powerspectrum('python');">PHP</li>
-                            <li onclick="powerspectrum('python');">Golang</li>
-                            <li onclick="powerspectrum('python');">Lua</li>
-                            <li onclick="powerspectrum('python');">Swift</li>
-                            <li onclick="powerspectrum('python');">Object-C</li>
+                            <li onclick="powerspectrum(this);" src="python">Python</li>
+                            <li onclick="powerspectrum(this);" src="swift">Swift</li>
+                            <li onclick="powerspectrum(this);" src="go">Go</li>
+                            <li onclick="powerspectrum(this);" src="php">PHP</li>
+                            <li onclick="powerspectrum(this);" src="javascript">Javascript</li>
+                            <li onclick="powerspectrum(this);" src="lua">Lua</li>
+                            <li onclick="powerspectrum(this);" src="object-c">Object-C</li>
+                            <li onclick="powerspectrum(this);" src="erlang">ErLang</li>
+                            <li onclick="powerspectrum(this);" src="java">Java</li>
+                            <li onclick="powerspectrum(this);" src="c++">C++</li>
+                        </ul>
+                        <ul>
+                            <li onclick="powerspectrum(this);" src="matlab">MatLab</li>
+                            <li onclick="powerspectrum(this);" src="c">C</li>
+                            <li onclick="powerspectrum(this);" src="asm">ASM</li>
+                            <li onclick="powerspectrum(this);" src="hdl">HDL</li>
+                            <li onclick="powerspectrum(this);" src="chip">Chip</li>
+                            <li onclick="powerspectrum(this);" src="radio">Radio</li>
+                            <li onclick="powerspectrum(this);" src="pcblayout">PCBLayout</li>
+                            <li onclick="powerspectrum(this);" src="circuitdesign">CircuitDesign</li>
+                            <li onclick="powerspectrum(this);" src="algorithm">Algorithm</li>
                         </ul>
                     </td>
                     <td>
                         <ul>
-                            <li onclick="esoterica('ai-introduction');">人工智能入门</li>
-                            <li onclick="esoterica('things-with-iot');">IOT那些事儿</li>
-                            <li onclick="esoterica('sciolistic-python');">Python半深入讲义</li>
+                            <li onclick="esoterica(this);" src="ai-introduction">人工智能入门</li>
+                            <li onclick="esoterica(this);" src="things-with-iot">IOT那些事儿</li>
+                            <li onclick="esoterica(this);" src="sciolistic-python">Python半深入讲义</li>
                         </ul>
                     </td>
                     <td>
                         <ul>
-                            <li onclick="art(this);" src="XMjc0NTk1NTAxNg">Your Heart For My Number</li>
+                            <li onclick="art(this);" src="XMjc0NTk1NTAxNg">YrHeart4MyNumber</li>
                         </ul>
                     </td>
                 </tr>

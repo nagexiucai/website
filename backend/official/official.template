@@ -5,7 +5,8 @@
         <a href="http://github.com/nagexiucai/" target="_blank">项目</a>
         <a href="/about.php?target=official" target="_blank">关于</a>
         <div id="topic" style="display:none;">
-            <p><a href="/topic.php?title=IOT技术路线图&svg=iot" target="_blank">IOT技术栈</a></p>
+            <p><a href="/topic.php?title=AI基础学科&svg=subjects-under-ai" target="_blank">人工智能基础学科</a></p>
+            <p><a href="/topic.php?title=IOT技术路线图&svg=iot" target="_blank">物联网技术栈</a></p>
             <p><a href="/topic.php?title=人民的名义人物关系&svg=in-the-name-of-people" target="_blank">人民的名义简谱</a></p>
             <p><a href="javascript:$topic();">^</a></p>
         </div>
