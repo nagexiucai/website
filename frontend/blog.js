@@ -60,7 +60,7 @@ function esoterica(which){
 function art(which){
     paper.style = "display:none;";
     abstract.style = "display:none;";
-    var url = "http://player.youku.com/player.php/sid/" + which.attributes["src"].nodeValue + "==/v.swf";
+    var url = /*"http://player.youku.com/player.php/sid/"*/"http://player.youku.com/embed/" + which.attributes["src"].nodeValue + "=="/*==/v.swf"*/;
     swf.setAttribute("src", url);
     swf.style = "display:inline-block;";
     indicator(which);
