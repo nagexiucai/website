@@ -5,6 +5,7 @@ require "./backend/bra.php";
 
 class About extends Bra {
     public function __construct() {
+        $this->title = $this->title."|"."关于";
         $this->link = "<link rel='stylesheet' type='text/css' href='/frontend/about.css'>";
         $this->hscript = "<script type='text/javascript' src='/frontend/common/utils.js'></script>";
         $this->content = $this->contentgen();

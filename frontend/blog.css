@@ -4,3 +4,15 @@
     background-color: black;
     color: white;
 }
+
+li {
+    list-style-type: none;
+}
+li:hover {
+    cursor: help;
+    color: lightpink;
+}
+
+td {
+    width: 160px;
+}

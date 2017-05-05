@@ -1,0 +1,55 @@
+<div class='fullscreen'>
+    <div id='mark'>
+        <img src="/frontend/material-library/logo-blog.png" alt="bob"/>
+    </div>
+    <div id='list'>
+        <table width="100%">
+            <caption>人生自古谁无死，愿早日实现愿望！</caption>
+            <thead>
+                <tr>
+                    <th align="left"></th><th align="center"></th><th align="right"></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>
+                        <ul>
+                            <li onclick="powerspectrum('python');">Python</li>
+                            <li onclick="powerspectrum('python');">C</li>
+                            <li onclick="powerspectrum('python');">Java</li>
+                            <li onclick="powerspectrum('python');">C++</li>
+                            <li onclick="powerspectrum('python');">Javascript</li>
+                            <li onclick="powerspectrum('python');">PHP</li>
+                            <li onclick="powerspectrum('python');">Golang</li>
+                            <li onclick="powerspectrum('python');">Lua</li>
+                            <li onclick="powerspectrum('python');">Swift</li>
+                            <li onclick="powerspectrum('python');">Object-C</li>
+                        </ul>
+                    </td>
+                    <td>
+                        <ul>
+                            <li onclick="esoterica('ai-introduction');">人工智能入门</li>
+                            <li onclick="esoterica('things-with-iot');">IOT那些事儿</li>
+                            <li onclick="esoterica('sciolistic-python');">Python半深入讲义</li>
+                        </ul>
+                    </td>
+                    <td>
+                        <ul>
+                            <li onclick="art(this);" src="XMjc0NTk1NTAxNg">Your Heart For My Number</li>
+                        </ul>
+                    </td>
+                </tr>
+            </tbody>
+            <tfoot>
+                <tr>
+                    <td></td><td></td><td></td>
+                </tr>
+            </tfoot>
+        </table>
+    </div>
+    <div id="show">
+        <embed id="swf" style="display:none;" width="480px" height="400px" align="middle" quality="high" autostart="true" autorewind="true" loop="true" allowFullScreen="true" allowScriptAccess="always" type="application/x-shockwave-flash"></embed>
+        <canvas id="paper" style="display:none;" width="480px" height="400px"></canvas>
+        <p id="abstract" style="display:none;width:480px;height:400px"></p>
+    </div>
+</div>
