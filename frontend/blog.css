@@ -5,8 +5,8 @@
     color: white;
 }
 
-ul {
-    float: left;
+ul, p {
+    display: inherit;
     margin-top: 0;
     margin-bottom: 0;
 }

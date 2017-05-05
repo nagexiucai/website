@@ -5,7 +5,7 @@
     <div id='list'>
         <table width="100%">
             <caption>
-                <a href="http://blog.sina.com.cn/dukezhousite/">
+                <a href="http://blog.sina.com.cn/dukezhousite/" target="_blank">
 吾本众生一蚍蜉，从头到脚五六尺。怀无子建才八斗，身差乞丐碗半只。<br/>
 强作斯文常扫地，妄诩大智近乎痴。壮士姻缘少缘分，铁汉柔情多情丝。<br/>
 寄情山水永乐此，肆意吟唱不疲兹。恨伪愤虚心未改，放形浪骸性难羁。<br/>
@@ -46,9 +46,9 @@
                     </td>
                     <td>
                         <ul>
-                            <li onclick="esoterica(this);" src="ai-introduction">人工智能入门</li>
-                            <li onclick="esoterica(this);" src="things-with-iot">IOT那些事儿</li>
-                            <li onclick="esoterica(this);" src="sciolistic-python">Python半深入讲义</li>
+                            <li onclick="esoterica(this);" src="458c6f8c8bd2bcec4f8328cd2d6a8208" mark="适合AI初学者。<br/>从基础学科回顾开始，到成功训练一个基于CNN的机器打分系统结束。">人工智能入门</li>
+                            <li onclick="esoterica(this);" src="a061710c5d347eebbf9eca9d164d86d0" mark="针对物联网感兴趣却对相关技术栈了解不全面的朋友。<br/>通过一个演示系统的不断迭代，彻底掌握物联网技术。">IOT那些事儿</li>
+                            <li onclick="esoterica(this);" src="1f0da4c01eceb2a24b0a036e757c81be" mark="人生苦短，快用派森！<br/>快速上手Python编程，快速搭建需求解决方案原型，快速迭代，品味Python的快。<br/>不单单是语法和基本库、Web框架，还有解释型语言虚拟机的实现。">Python半深入讲义</li>
                         </ul>
                     </td>
                     <td>
@@ -67,7 +67,7 @@
     </div>
     <div id="show">
         <embed id="swf" style="display:none;" width="480px" height="400px" align="middle" quality="high" autostart="true" autorewind="true" loop="true" allowFullScreen="true" allowScriptAccess="always" type="application/x-shockwave-flash"></embed>
-        <canvas id="paper" style="display:none;" width="480px" height="400px"></canvas>
-        <p id="abstract" style="display:none;width:480px;height:400px"></p>
+        <canvas id="paper" style="display:none;" width="480px" height="400px">浏览器不支持画布！</canvas>
+        <p id="abstract" style="display:none;height:400px"></p>
     </div>
 </div>
