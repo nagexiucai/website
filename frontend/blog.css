@@ -5,10 +5,15 @@
     color: white;
 }
 
+table {
+    width: 520px;
+    margin: auto;
+}
+
 ul, p {
     display: inherit;
-    margin-top: 0;
-    margin-bottom: 0;
+    margin: 0;
+    padding: 0;
 }
 
 li {
@@ -17,10 +22,6 @@ li {
 li:hover {
     cursor: help;
     color: lightpink;
-}
-
-td {
-    width: 160px;
 }
 
 a {

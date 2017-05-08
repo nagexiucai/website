@@ -14,34 +14,35 @@
             </caption>
             <thead>
                 <tr>
-                    <th align="left"></th><th align="center"></th><th align="right"></th>
+                    <th align="left" width="30%"></th><th align="center" width="40%"></th><th align="right" width="30%"></th>
                 </tr>
             </thead>
             <tbody>
                 <tr>
                     <td>
                         <ul>
-                            <li onclick="powerspectrum(this);" src="python">Python</li>
-                            <li onclick="powerspectrum(this);" src="swift">Swift</li>
-                            <li onclick="powerspectrum(this);" src="go">Go</li>
-                            <li onclick="powerspectrum(this);" src="php">PHP</li>
-                            <li onclick="powerspectrum(this);" src="javascript">Javascript</li>
-                            <li onclick="powerspectrum(this);" src="lua">Lua</li>
-                            <li onclick="powerspectrum(this);" src="object-c">Object-C</li>
-                            <li onclick="powerspectrum(this);" src="erlang">ErLang</li>
-                            <li onclick="powerspectrum(this);" src="java">Java</li>
-                            <li onclick="powerspectrum(this);" src="c++">C++</li>
+                            <li onclick="powerSpectrum(this);" src="python">Python</li>
+                            <li onclick="powerSpectrum(this);" src="swift">Swift</li>
+                            <li onclick="powerSpectrum(this);" src="go">Go</li>
+                            <li onclick="powerSpectrum(this);" src="php">PHP</li>
+                            <li onclick="powerSpectrum(this);" src="javascript">Javascript</li>
+                            <li onclick="powerSpectrum(this);" src="lua">Lua</li>
+                            <li onclick="powerSpectrum(this);" src="object-c">Object-C</li>
+                            <li onclick="powerSpectrum(this);" src="erlang">ErLang</li>
+                            <li onclick="powerSpectrum(this);" src="java">Java</li>
+                            <li onclick="powerSpectrum(this);" src="c++">C++</li>
                         </ul>
                         <ul>
-                            <li onclick="powerspectrum(this);" src="matlab">MatLab</li>
-                            <li onclick="powerspectrum(this);" src="c">C</li>
-                            <li onclick="powerspectrum(this);" src="asm">ASM</li>
-                            <li onclick="powerspectrum(this);" src="hdl">HDL</li>
-                            <li onclick="powerspectrum(this);" src="chip">Chip</li>
-                            <li onclick="powerspectrum(this);" src="radio">Radio</li>
-                            <li onclick="powerspectrum(this);" src="pcblayout">PCBLayout</li>
-                            <li onclick="powerspectrum(this);" src="circuitdesign">CircuitDesign</li>
-                            <li onclick="powerspectrum(this);" src="algorithm">Algorithm</li>
+                            <li onclick="powerSpectrum(this);" src="matlab">MatLab</li>
+                            <li onclick="powerSpectrum(this);" src="c">C</li>
+                            <li onclick="powerSpectrum(this);" src="asm">ASM</li>
+                            <li onclick="powerSpectrum(this);" src="hdl">HDL</li>
+                            <li onclick="powerSpectrum(this);" src="chip">Chip</li>
+                            <li onclick="powerSpectrum(this);" src="radio">Radio</li>
+                            <li onclick="powerSpectrum(this);" src="pcblayout">PCBLayout</li>
+                            <li onclick="powerSpectrum(this);" src="circuitdesign">CircuitDesign</li>
+                            <li onclick="powerSpectrum(this);" src="algorithm">Algorithm</li>
+                            <li onclick="powerSpectrum(this);" src="biomedical">BioMedical</li>
                         </ul>
                     </td>
                     <td>
@@ -53,7 +54,7 @@
                     </td>
                     <td>
                         <ul>
-                            <li onclick="art(this);" src="XMjc0NTk1NTAxNg">YrHeart4MyNumber</li>
+                            <li onclick="art(this);" src="XMjc0NTk1NTAxNg">YrHeart4MyNumb</li>
                         </ul>
                     </td>
                 </tr>
