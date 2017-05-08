@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>map's demo</title>
+    <meta http-equiv="keywords" content="keyword1,keyword2,keyword3">
+    <meta http-equiv="description" content="this is my page">
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+</head>
+    <!--google-->
+    <script type="text/javascript" src="https://maps.google.com/maps/api/js?sensor=false"></script>
+    <!--baidu-->  
+    <script type="text/javascript" src="http://api.map.baidu.com/api?v=1.3"></script>
+<body onload="initialize();">
+    <div id="canvas" style="width: 800px; height: 600px"></div>
+    <div id="message"></div>
+    输入省、直辖市或县名称：
+    <input type="text" id="districtName" style="width: 80px" value="华阴">
+    <input type="button" onclick="getBoundary()" value="获取轮廓线">
+</body>
+<script type="text/javascript">
+    var map;
+    function initialize() {
+        var initLatLng = new google.maps.LatLng(34.4778708,
+                110.0848103);
+        var myOptions = {
+            zoom : 4,
+            center : initLatLng,
+            mapTypeId : google.maps.MapTypeId.TERRAIN
+        };
+        var bermudaTriangle;
+        map = new google.maps.Map(document.getElementById("canvas"),
+                myOptions);
+    }
+    function test() {
+    }
+    function getBoundary() {
+        var bdary = new BMap.Boundary();
+        var name = document.getElementById("districtName").value;
+        //多边形定义
+        bdary.get(name, function(rs) {
+            points = rs; //获取行政区域
+            var rslength = rs.boundaries.length;
+            var top=0;//大
+            var bottom=0;//小
+            var left=0;//小
+            var right=0;//大
+            for (i = 0; i < rslength; i++) {
+                var triangleCoords = [];
+                var temp = rs.boundaries[i];
+                var latLngs = temp.split(";");
+                for (j = 1; j < latLngs.length - 1; j++) {
+                    var postion = latLngs[j].indexOf(",");
+                    var lat = parseFloat(latLngs[j].substr(0, postion));//经度
+                    var lng = parseFloat(latLngs[j].substr(postion + 1));//纬度
+                    //加入经纬度
+                    triangleCoords.push(new google.maps.LatLng(lng, lat));
+                    //活动最大，最小经纬度。计算地图中心点
+                    if(j==1&&top==0&&bottom==0&&left==0&&right==0){
+                        top=lng;
+                        bottom=lng;
+                        left=lat;
+                        right=lat;
+                    }else{
+                        if(lng>top){
+                            top=lng;
+                        }
+                        if(lng<bottom){
+                            bottom=lng;
+                        }
+                        if(lat>right){
+                            right=lat;
+                        }
+                        if(lat<left){
+                            left=lat;
+                        }
+                    }
+                }
+                bermudaTriangle = new google.maps.Polygon({
+                    paths : triangleCoords,
+                    strokeColor : "#FF0000",
+                    strokeOpacity : 0.8,
+                    strokeWeight : 2,
+                    fillColor : "#FF0000",
+                    fillOpacity : 0.35
+                });
+                bermudaTriangle.setMap(map);
+            }
+            map.setCenter(new google.maps.LatLng(bottom+((top-bottom)/2),left+((right-left)/2)));
+            map.setZoom(7);
+        });  
+    }
+</script>
+</html> 
