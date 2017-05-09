@@ -14,7 +14,7 @@
 */
 
 //速度调节因子
-var factor = 3; //取值范围是[0,6]（值越大越快）
+var factor = 3; //取值范围是[0,6]（值越大越快）——TODO:这种加速稀疏采样的方式对数据精度损伤太大导致位置偏离显著
 
 //采点目标区域（矩形）
 var top = parseFloat(34.543466.toFixed(factor));
@@ -30,21 +30,12 @@ var http = require("http");
 var querystring = require("querystring");
 var options = {
     host: "127.0.0.1",
-    port: "8087",
-    _path_: "/maps/api/elevation/json?",
+    port: 8087,
+    _path_: "http://maps.googleapis.com/maps/api/elevation/json?",
     path: "/",
     method: "GET",
     headers: {
-        "Accept":"text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8",
-        "Accept-Encoding":"gzip, deflate, sdch, br",
-        "Accept-Language":"zh-CN,zh;q=0.8",
-        "Cache-Control":"no-cache",
         "Connection":"keep-alive",
-        "Host":"maps.googleapis.com",
-        "Pragma":"no-cache",
-        "Upgrade-Insecure-Requests":"1",
-        "User-Agent":"Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/57.0.2987.133 Safari/537.36",
-        "X-Client-Data":"CI22yQEIorbJAQjEtskBCPqcygEIqZ3KAQ=="
     }
 };
 
