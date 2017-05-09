@@ -29,7 +29,8 @@ var deltax = right*(1000000/Math.pow(10,factor)) - left*(1000000/Math.pow(10,fac
 var http = require("http");
 var querystring = require("querystring");
 var options = {
-    host: "maps.googleapis.com",
+    host: "127.0.0.1",
+    port: "8087",
     _path_: "/maps/api/elevation/json?",
     path: "/",
     method: "GET",
