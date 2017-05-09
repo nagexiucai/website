@@ -22,39 +22,35 @@
     function initialize() {
         var initLatLng = new google.maps.LatLng(34.4778708,
                 110.0848103);
-        var myOptions = {
+        var options = {
             zoom : 4,
             center : initLatLng,
             mapTypeId : google.maps.MapTypeId.TERRAIN
         };
         var bermudaTriangle;
         map = new google.maps.Map(document.getElementById("canvas"),
-                myOptions);
-    }
-    function test() {
+                options);
     }
     function getBoundary() {
         var bdary = new BMap.Boundary();
         var name = document.getElementById("districtName").value;
         //多边形定义
         bdary.get(name, function(rs) {
-            points = rs; //获取行政区域
-            var rslength = rs.boundaries.length;
-            var top=0;//大
-            var bottom=0;//小
-            var left=0;//小
-            var right=0;//大
-            for (i = 0; i < rslength; i++) {
+            //中国处在东经和北纬球域（上North/下South/左West/右East，N>S/E>W）
+            var top=0;
+            var bottom=0;
+            var left=0;
+            var right=0;
+            for (i = 0; i < rs.boundaries.length; i++) {
                 var triangleCoords = [];
-                var temp = rs.boundaries[i];
-                var latLngs = temp.split(";");
+                var latLngs = rs.boundaries[i].split(";");
                 for (j = 1; j < latLngs.length - 1; j++) {
                     var postion = latLngs[j].indexOf(",");
                     var lat = parseFloat(latLngs[j].substr(0, postion));//经度
                     var lng = parseFloat(latLngs[j].substr(postion + 1));//纬度
                     //加入经纬度
                     triangleCoords.push(new google.maps.LatLng(lng, lat));
-                    //活动最大，最小经纬度。计算地图中心点
+                    //更新最大最小经纬度以计算地图中心点
                     if(j==1&&top==0&&bottom==0&&left==0&&right==0){
                         top=lng;
                         bottom=lng;
@@ -90,4 +86,4 @@
         });  
     }
 </script>
-</html> 
+</html>
