@@ -36,7 +36,6 @@
         var name = document.getElementById("districtName").value;
         //多边形定义
         bdary.get(name, function(rs) {
-            console.log(rs.boundaries);
             //中国处在东经和北纬球域（上North/下South/左West/右East，N>S/E>W）
             var top=0;
             var bottom=0;
@@ -72,7 +71,6 @@
                         }
                     }
                 }
-                console.log(triangleCoords);
                 bermudaTriangle = new google.maps.Polygon({
                     paths : triangleCoords,
                     strokeColor : "#FF0000",
