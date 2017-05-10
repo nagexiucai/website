@@ -4,8 +4,10 @@
 import requests
 import json
 import sqlite3
+import time
 
 K = 2000 # URL长度
+L = 0.1 # 防止过快拒绝
 M = 50 # 一次请求的点数
 N = 3 # 累计错误容忍量
 
@@ -33,6 +35,7 @@ def fetch():
     tries = N
     positions = []
     with open(".\data.js", "w") as log:
+        print >> log, time.ctime()
         for position in dotgen():
             if not tries:
                 break
@@ -43,6 +46,7 @@ def fetch():
                 assert length < K
                 params = {"locations": locations}
                 response = requests.get(url, params=params, proxies=proxies)
+                time.sleep(L)
                 data = response.json()
                 print >> log, "//", response.url
                 print >> log, "// var data =", json.dumps(data)
@@ -57,6 +61,7 @@ def fetch():
                     print >> log, status
                     tries = tries - 1
                 positions[:] = []
+        print >> log, time.ctime()
 
 try:
     fetch()
