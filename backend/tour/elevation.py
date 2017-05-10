@@ -1,7 +1,18 @@
 #!/usr/bin/env python
+#coding=utf-8
 
 import requests
 import json
+import sqlite3
+
+K = 2000 # URL长度
+M = 50 # 一次请求的点数
+N = 3 # 累计错误容忍量
+
+db = sqlite3.connect("./data.db")
+cursor = db.cursor()
+cursor.execute("CREATE TABLE MOUNTHUA(latitude TEXT, longitude TEXT, elevation TEXT);")
+db.commit()
 
 url = "http://maps.googleapis.com/maps/api/elevation/json"
 proxies = {"http": "127.0.0.1:8087"}
@@ -11,30 +22,44 @@ south = 34438462
 east = 110115926
 west = 110023532
 step = 1
-scale = 1000000.0
+scale = 1000000.0 # 防止还原时丢失小数部分
 
-def dotgen():
-    for latitude in xrange(south, north, step):
-        for longitude in xrange(west, east, step):
-            yield latitude/scale, longitude/scale
+def fetch():
+    def dotgen():
+        for latitude in xrange(south, north, step):
+            for longitude in xrange(west, east, step):
+                yield latitude/scale, longitude/scale
+    limit = M
+    tries = N
+    positions = []
+    with open(".\data.js", "w") as log:
+        for position in dotgen():
+            if not tries:
+                break
+            positions.append("%s,%s" % position)
+            if len(positions) % limit == 0:
+                locations = "|".join(positions)
+                length = len(locations)
+                assert length < K
+                params = {"locations": locations}
+                response = requests.get(url, params=params, proxies=proxies)
+                data = response.json()
+                print >> log, "//", response.url
+                print >> log, "// var data =", json.dumps(data)
+                status = data.get("status")
+                results = data.get("results")
+                if status == "OK" and results:
+                    for result in results:
+                        location = result.get("location")
+                        cursor.execute("INSERT INTO MOUNTHUA VALUES('%s', '%s', '%s')" % (location.get("lat"), location.get("lng"), result.get("elevation")))
+                    db.commit()
+                else:
+                    print >> log, status
+                    tries = tries - 1
+                positions[:] = []
 
-positions = []
-for position in dotgen():
-    print position
-    positions.append("%s,%s" % position)
-    if len(positions) == 50:
-        break;
-
-locations = "|".join(positions)
-length = len(locations)
-print length
-if length > 2000:
-    print "too long"
-
-params = {"locations": locations}
-
-response = requests.get(url, params=params, proxies=proxies)
-with open(".\url.txt", "w") as log:
-    print >> log, response.url
-print dir(response)
-print response.json
+try:
+    fetch()
+finally:
+    cursor.close()
+    db.close()

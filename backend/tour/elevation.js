@@ -13,6 +13,10 @@
 依此看来：要么将步长放大到0.001以上；要么增加有效线程。
 */
 
+/*********************
+****! Deprecated !****
+*********************/
+
 //速度调节因子
 var factor = 3; //取值范围是[0,6]（值越大越快）——TODO:这种加速稀疏采样的方式对数据精度损伤太大导致位置偏离显著
 
@@ -25,42 +29,25 @@ var step = 0.000001*(Math.pow(10,factor));
 var deltay = top*(1000000/Math.pow(10,factor)) - bottom*(1000000/Math.pow(10,factor));
 var deltax = right*(1000000/Math.pow(10,factor)) - left*(1000000/Math.pow(10,factor));
 
-//node get http querystring
-var http = require("http");
-var querystring = require("querystring");
-var options = {
-    host: "127.0.0.1",
-    port: 8087,
-    _path_: "http://maps.googleapis.com/maps/api/elevation/json?",
-    path: "/",
-    method: "GET",
-    headers: {
-        "Connection":"keep-alive",
-    }
-};
+var url = "http://maps.googleapis.com/maps/api/elevation/json?";
 
-function get(options) {
-    http.get(options, function(response){
-        var stream = "";
-        response.on("data", function(data){
-            stream += data;
-        });
-        response.on("end", function(){
-            console.log(stream);
-        });
+var request = require("request"); //TODO: 从http到request还是没解决httproxy配置的问题（对node相关模块不熟悉吧）
+request.defaults({"proxy":"http://127.0.0.1:8087"});
+
+function fetch(query) {
+    request(url+query, function (error, response, body) {
+        console.log(error);
+        console.log(response);
+        console.log(body);
     });
 }
 
 //扫描
 for (var y=0, cursory=top; y<deltay; y++, cursory=Math.round(((cursory+step)*Math.pow(10,factor)))/Math.pow(10,factor)) {
     for (var x=0, cursorx=left; x<deltax; x++, cursorx=Math.round(((cursorx+step)*Math.pow(10,factor)))/Math.pow(10,factor)) {
-        var parameters = {
-            locations: cursory+","+cursorx
-        };
-
-        options.path = options._path_ + querystring.stringify(parameters);
-        //console.log(parameters.locations);
-
-        get(options);
+        query = "locations=" + cursory + "," + cursorx;
+        fetch(query);
+        break;
     }
+    break;
 }
