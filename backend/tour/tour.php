@@ -9,8 +9,9 @@ class Tour extends Bra {
     {
         $this->title = "那个秀才|爬华山";
         $this->link = "<link rel='stylesheet' type='text/css' href='/frontend/tour.css'>";
-        $this->hscript = "<script type='text/javascript' src='/frontend/tour.js'></script>";
-        $this->content = "<div class='fullscreen'><div id='photowall'></div></div>";
+        $this->hscript = "<script src='/frontend/common/three.js'></script>";
+        $this->content = "./backend/tour/tour.template";
+        $this->bscript = "<script type='text/javascript' src='/frontend/tour.js'></script>";
     }
 }
 
