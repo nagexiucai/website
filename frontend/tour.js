@@ -8,11 +8,10 @@ For example this plane is divided into 5x5 segments, which results into 36 verti
 Plane with 10 height/width and 5x5 segments, so as THREE.PlaneGeometry(10,10,5,5);
 */
 
-// return array with height data from img
-function getHeightData(img, scale) {
-    if (scale == undefined) {
-        scale=1;
-    }
+// obtain array with height data from img
+// height = -10000 + ((R * 256 * 256 + G * 256 + B) * 0.1) -- https://www.mapbox.com/blog/terrain-rgb/
+// height = (red * 256 + green + blue / 256) - 32768 -- https://mapzen.com/documentation/terrain-tiles/formats/
+function getHeightData(img) {
     var canvas = document.createElement("canvas");
     canvas.width = img.width;
     canvas.height = img.height;
@@ -23,12 +22,11 @@ function getHeightData(img, scale) {
     for (vari=0;i<size;i++) {
         data[i] = 0
     }
-    var imgd = context.getImageData(0,0,img.width,img.height);
-    var pix = imgd.data;
-    var j=0;
-    for (var i=0;i<pix.length;i+=4) {
-        var all = pix[i]+pix[i+1]+pix[i+2];
-        data[j++] = all/(12*scale);
+    var idata = context.getImageData(0,0,img.width,img.height);
+    var pixels = idata.data;
+    // console.log(pixels);
+    for (var i=0,j=0;i<pixels.length;i+=4,j++) { // TODO: why step is 4 and what rbg correspondence is -- because of rgba: https://developer.mozilla.org/en-US/docs/Web/API/ImageData/data/
+        data[j] = (pixels[i]*256+pixels[i+1]+pixels[i+2]/256)-32768;
     }
     return data;
 }
@@ -39,37 +37,102 @@ img.onload = function () {
     var square = document.getElementById("square");
     // get height data from img
     var data = getHeightData(img);
+    // console.log(data);
+    // console.log(img.width);
+    // console.log(img.height);
+    data.max
     // prepare environment
     var renderer = new THREE.WebGLRenderer();
-    renderer.setSize(400, 400);
+    renderer.setSize(640, 480); // TODO: to be reactive
     square.appendChild(renderer.domElement);
-    var camera = new THREE.PerspectiveCamera(45,1,1,1000);
-    camera.position.z = 5;
     var scene = new THREE.Scene();
+    var camera = new THREE.PerspectiveCamera(75,1,0.1,1000);
+    camera.position.set(0,0,20);
+    camera.lookAt(scene.position);
+    controls = new THREE.OrbitControls(camera, renderer.domElement);
+    scene.add(new THREE.AmbientLight("white")); // XXX: MeshLambertMaterial needs Light
     // plane
-    var geometry = new THREE.PlaneGeometry(256,256,255,255);
-    var texture = THREE.ImageUtils.loadTexture("/frontend/material-library/huashan-texture.jpg");
-    var material = new THREE.MeshLambertMaterial({color: 0xffffff}/*{map: texture}*/);
+    var geometry = new THREE.PlaneGeometry(16,16,img.width-1,img.height-1);
+    // changeable geometry
+    // geometry.dynamic = true;
+    // geometry.__dirtyVertices = true;
+    // geometry.computeCentroids();
+    var skin = new Image();
+    skin.src = img.skin;
+    var texture = new THREE.Texture(skin);
+    texture.wrapS = texture.wrapT = THREE.RepeatWrapping;
+    texture.needsUpdate = true;
+    // var cover = {color: 0x00FF00, wireframe: true};
+    var cover = {map: texture}; // TODO: Texture marked for update but image is incomplete
+    var material = new THREE.MeshLambertMaterial(cover);
     var plane = new THREE.Mesh(geometry,material);
+    plane.rotation.set(-Math.PI/4,0,-Math.PI/4);
     // set height of vertices
-    for ( var i=0;i<plane.geometry.vertices.length;i++) {
-        plane.geometry.vertices[i].z = data[i];
+    // console.log(plane.geometry.vertices.length);
+    var grads = function () {
+        for (var i=0,j=-1;i<plane.geometry.vertices.length;i++) {
+            if (i%256==0) {
+                if (j<0) {
+                    plane.geometry.vertices[i].z = 0;
+                }
+                else {
+                    plane.geometry.vertices[i].z = data[i]-data[j*256];
+                }
+                j++;
+            }
+            else {
+                plane.geometry.vertices[i].z = data[i]-data[i-1];
+            }
+        }
     }
+    var scale = function () {
+        // maximum=1826.519531 minimum=899.460938 difference=927.058593 -- huashan-14-13202-6518
+        // maximum=2305.972656 minimum=324.000000 difference=1981.972656 -- huashan-10-825-407
+        for (var i=0;i<plane.geometry.vertices.length;i++) {
+            plane.geometry.vertices[i].z = (data[i]-img.base)/img.scale;
+        }
+    }
+    // grads();
+    scale();
+
     scene.add(plane);
 
-    var geometry = new THREE.BoxGeometry(1,1,1);
-    var material = new THREE.MeshBasicMaterial({color: 0x00ff00});
-    var cube = new THREE.Mesh(geometry,material);
-    scene.add(cube);
+    // cube
+    // var geometry = new THREE.BoxGeometry(1,1,1);
+    // var material = new THREE.MeshBasicMaterial({color: 0xF0000F/*, wireframe: true*/});
+    // var cube = new THREE.Mesh(geometry,material);
+    // scene.add(cube);
 
     var render = function () {
         requestAnimationFrame(render);
 
-        cube.rotation.x += 0.1;
-        cube.rotation.y += 0.1;
+        // plane.rotation.x += 0.01;
+        // plane.rotation.y += 0.01;
+        // cube.rotation.x += 0.01;
+        // cube.rotation.y += 0.01;
+
+        controls.update();
         renderer.render(scene,camera);
     };
     render();
 };
-// load img source
-img.src = "/frontend/material-library/huashan.png";
+
+var whole = function () {
+    img.base = 1981.972656;
+    img.scale = 1000;
+    img.skin = "/frontend/material-library/huashan-texture-10-825-407.jpg";
+    img.src = "/frontend/material-library/huashan-10-825-407.png";
+}
+var part = function () {
+    img.base = 899.460938;
+    img.scale = 100;
+    img.skin = "/frontend/material-library/huashan-texture-14-13202-6518.jpg";
+    img.src = "/frontend/material-library/huashan-14-13202-6518.png";
+}
+
+if (Math.random()*10 > 5.0) {
+    whole();
+}
+else {
+    part();
+}
