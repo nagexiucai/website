@@ -9,8 +9,9 @@ class Tech extends Bra {
     {
         $this->title = "那个秀才|此栈";
         $this->link = "<link rel='stylesheet' type='text/css' href='/frontend/tech.css'>";
-        $this->hscript = "<script type='text/javascript' src='/frontend/tech.js'></script>";
-        $this->content = "<div class='fullscreen'><div id='logo'></div><div id='tv'></div><div id='product'></div><div id='contact'></div></div>";
+        $this->hscript = "<script type='text/javascript' src='/frontend/common/three.js'></script><script type='text/javascript' src='/frontend/tech.js'></script>";
+        $this->content = "./backend/tech/tech.template";
+        $this->bscript = "<script type='text/javascript' src='/frontend/tech.js'></script>";
     }
 }
 
