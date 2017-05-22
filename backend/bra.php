@@ -12,6 +12,7 @@ class Bra {
     public $bscript="";
 
     function html() {
+        //echo self::DOCTYPE; // TODO: why style breaks with it
         echo "<html>";
         $this->head();
         $this->body();

@@ -1,1 +1,11 @@
 /* https://github.com/nagexiucai/website */
+
+body {
+    background: black;
+}
+
+canvas {
+    margin: 0;
+    padding: 0;
+    border: 1px solid white;
+}

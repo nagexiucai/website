@@ -1,5 +1,7 @@
 <div class="fullscreen">
-    <div id="works">
-        
+    <div id="entity">
+        <canvas id="canvas-war"></canvas>
     </div>
+    <div id="barrage"></div>
+    <div id="rocker"></div>
 </div>
