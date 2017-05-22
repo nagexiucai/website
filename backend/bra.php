@@ -30,7 +30,7 @@ class Bra {
         echo "</head>";
     }
     function body() {
-        echo "<body id='body'>";
+        echo "<body>";
         if (is_file($this->content)) {
             include $this->content;
         }
