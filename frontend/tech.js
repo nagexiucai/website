@@ -16,12 +16,36 @@ var environments = function () {
 var entities = [];
 var ticks = 0;
 
-// 内点判定
+// 判定内点
 function pointin(p, plg) {
     for (var c = false, i = -1, l = plg.length, j = l - 1; ++i < l; j = i) {
         ((plg[i].y <= p.y && p.y < plg[j].y) || (plg[j].y <= p.y && p.y < plg[i].y)) && (p.x < (plg[j].x - plg[i].x) * (p.y - plg[i].y) / (plg[j].y - plg[i].y) + plg[i].x) && (c = !c);
     }
     return c;
+}
+
+// 计算平面上已知顶点和所过另外一点坐标开口朝上二次解析参数
+// TODO: 由于计算精度损失导致起止点水平或垂直接近时失效
+function quadratic(vertex, another) {
+    /* ax^2 + bx + c = y
+    ** vertex == P(x1,y1)
+    ** another == P(x2,y2)
+    ** 必过another的抛物线轴对称点 ? = P(2*x1-x2,y2)
+    ** 其实是平面上已知不重复三点可确定一条抛物线的通用法则
+    */
+
+    var a = ((another.y - vertex.y) * vertex.x) / Math.pow(vertex.x - another.x, 3);
+    var b = ((vertex.y - another.y) / (vertex.x - another.x)) - (a * (vertex.x + another.x));
+    var c = vertex.y - (a * Math.pow(vertex.x, 2)) - (b * vertex.x);
+
+    return function (x) {
+        return a*Math.pow(x,2) + b*x + c;
+    }
+}
+
+// 点距
+function distance(p, pp) {
+    return Math.pow(Math.pow(p.x-pp.x,2) + Math.pow(p.y-pp.y,2), 0.5);
 }
 
 // 战场布局
@@ -39,7 +63,7 @@ var layout = function (w, h, ctx, data) {
     var centerY = h/2;
     var radius = Math.min(w, h);
     for (var i=0;i<n;i++) {
-        var ett = entity(data[i].id, data[i].name, data[i].logo, data[i].score, ctx);
+        var ett = entity(data[i].id, data[i].name, data[i].logo, data[i].score, data[i].color, ctx);
         ett.x = centerX + Math.cos(step*i)*radius*scale/2;
         ett.y = centerY + Math.sin(step*i)*radius*scale/2;
         entities[ett.id] = ett;
@@ -48,13 +72,14 @@ var layout = function (w, h, ctx, data) {
 };
 
 // 实体模型
-var entity = function (id, name, logo, score, ctx) {
+var entity = function (id, name, logo, score, color, ctx) {
     return {
         id: id,
         name: name,
         logo: logo || "/frontend/common/police.png",
+        color: color,
         memebers: [],
-        vertexes: [],
+        vertexes: [], // reserved for 3d
         enemies: [],
         friends: [],
         x: 0,
@@ -76,7 +101,7 @@ var entity = function (id, name, logo, score, ctx) {
             img.ix = this.x;
             img.iy = this.y;
             img.onload = function () { // XXX: JS中的this实在太灵活
-                this.ictx.drawImage(img, this.ix-this.width/2, this.iy-this.height/2, this.width, this.height); // TODO: 如何传递外部this（setTimeout/setInterval）
+                this.ictx.drawImage(img, this.ix-this.width/2, this.iy-this.height/2, this.width, this.height);
             },
             img.src = this.logo;
             // 闪亮起来
@@ -86,7 +111,6 @@ var entity = function (id, name, logo, score, ctx) {
         },
         spark: function () {
             // 根据状态切换自身光环
-            console.log(this.name+"'s score is "+this.score);
         },
         fight: function () {
             var bullet = function () {
@@ -102,11 +126,12 @@ var entity = function (id, name, logo, score, ctx) {
                     by: 0,
                     status: "ready", // cruise/destruct/ready
                     bctx: undefined,
+                    orbit: undefined,
+                    bcolor: "white",
                     fly: function () {
-                        console.log("让子弹飞");
                         // 按N次贝塞尔曲线攻击（避开友军）
 
-                        // 按二阶抛物线攻击（简化：开口向上，起止点低者为拐点，则有“F(x) = K*x*x，K>0”，K设置曲率，然后整体平移使得顶点和拐点重合）
+                        // 按二阶抛物线攻击（若目标为顶点，则简化为“平面上已知顶点和所过一点坐标求开口向上二次解析方程”）
                         
                         // 保存当前坐标
                         var x = this.bx;
@@ -119,32 +144,44 @@ var entity = function (id, name, logo, score, ctx) {
                         else {
                             this.delta -= this.speed;
                         }
-                        this.bx = this.startX + this.delta;
-                        // 确定拐点坐标并计算垂直坐标
-                        if (this.endY <= this.startY) { // K*(x-this.endX)*(x-this.endX)+this.endY
-                            this.by = (this.bx-this.endX)*(this.bx-this.endX)/20 + this.endY;
-                        }
-                        else { // K*(x-this.startX)*(x-startX)+this.startY
-                            this.by = (this.bx-this.startX)*(this.bx-this.startX)/20 + this.startY;
-                        }
-                        console.log(this.delta+" "+this.bx+" "+this.by);
-this.bctx.fillStyle = "white";
-this.bctx.font = "20px Cursive";
-this.bctx.textAlign = "center";
-this.bctx.fillText("o", this.bx, this.by);
+                        this.bx += this.delta;
+
+                        // 计算垂直坐标
+                        this.by = this.orbit(this.bx);
+
                         // if x|y near target then burst and reset delta
+                        if (distance({x:this.startX,y:this.startY},{x:this.bx,y:this.by}) >= distance({x:this.endX,y:this.endY},{x:this.startX,y:this.startY})) {
+                            this.bx = this.startX;
+                            this.by = this.startY;
+                            this.delta = 0;
+                            this.status = "destruct";
+
+var img = new Image();
+img.ictx = this.bctx;
+img.ix = this.endX;
+img.iy = this.endY;
+img.onload = function () { // XXX: JS中的this实在太灵活
+    this.ictx.drawImage(img, this.ix-20, this.iy-20, 40, 40);
+},
+img.src = "/frontend/material-library/burst.png";
+
+                            return;
+                        }
+
+                        this.bctx.fillStyle = this.bcolor;
+                        this.bctx.beginPath();
+                        this.bctx.arc(this.bx, this.by, 3, 0, 2*Math.PI, true);
+                        this.bctx.fill();
+
                         this.status = "cruise";
                     },
                     emit: function () {
-                        console.log("发射");
                     },
                     burst: function () {
-                        console.log("命中");
                         this.status = "destruct";
                     }
                 };
             };
-            console.log(this.name+"'s enemies are:");
             for (var i=0; i<this.enemies.length; i++) { // TODO: 已经挂了的目标就不必继续打击
                 var warhead = bullet();
                 this.bullets[this.enemies[i]] = warhead;
@@ -154,6 +191,8 @@ this.bctx.fillText("o", this.bx, this.by);
                 warhead.endX = ett.x;
                 warhead.endY = ett.y;
                 warhead.bctx = this.ctx;
+                warhead.bcolor = ett.color;
+                warhead.orbit = quadratic({x:ett.x,y:ett.y},{x:this.x,y:this.y});
                 warhead.emit();
             }
         }
@@ -161,7 +200,7 @@ this.bctx.fillText("o", this.bx, this.by);
 };
 
 function initialize() {
-    var data = [{id:"lvbu",name:"吕布",memebers:[],logo:"",score:20},{id:"guanyu",name:"关羽",memebers:[],logo:"",score:15},{id:"zhaoyun",name:"赵云",memebers:[],logo:"",score:40},{id:"huangzhong",name:"黄忠",memebers:[],logo:"",score:30},{id:"dianwei",name:"典韦",memebers:[],logo:"",score:25},{id:"zhangfei",name:"张飞",memebers:[],logo:"",score:35},{id:"machao",name:"马超",memebers:[],logo:"",score:10},{id:"xuchu",name:"许褚",memebers:[],logo:"",score:50},{id:"ganning",name:"甘宁",memebers:[],logo:"",score:90},{id:"xiucai",name:"秀才",memebers:[],logo:"",score:65}]; // by ajax
+    var data = [{id:"lvbu",name:"吕布",memebers:[],logo:"",score:20,color:"red"},{id:"guanyu",name:"关羽",memebers:[],logo:"",score:15,color:"green"},{id:"zhaoyun",name:"赵云",memebers:[],logo:"",score:40,color:"blue"},{id:"huangzhong",name:"黄忠",memebers:[],logo:"",score:30,color:"violet"},{id:"dianwei",name:"典韦",memebers:[],logo:"",score:25,color:"pink"},{id:"zhangfei",name:"张飞",memebers:[],logo:"",score:35,color:"yellow"},{id:"machao",name:"马超",memebers:[],logo:"",score:10,color:"silver"},{id:"xuchu",name:"许褚",memebers:[],logo:"",score:50,color:"cyan"},{id:"ganning",name:"甘宁",memebers:[],logo:"",score:90,color:"orange"},{id:"xiucai",name:"秀才",memebers:[],logo:"",score:65,color:"golden"}]; // by ajax
     var cfg = environments();
     layout(cfg.width, cfg.height, cfg.ctx, data);
 }
@@ -176,17 +215,10 @@ function animate() {
 }
 
 function update() {
-//     if (ticks%5 == 0) {
-//         if (entities["xiucai"].enemies.length) {
-//             console.log("POP"+entities["xiucai"].enemies.pop());
-//         }
-//         else {
-//             entities["xiucai"].enemies.push("zhangfei"); // by ajax
-//             entities["xiucai"].fight();
-//         }
-
-//         ticks = 0;
-//     }
+    if (ticks%5 == 0) {
+        // by ajax
+        ticks = 0;
+    }
 
     animate();
 
@@ -195,8 +227,14 @@ function update() {
     setTimeout(update, 500);
 }
 
+function test() {
+    entities["xiucai"].enemies.push("xuchu");
+    entities["xiucai"].enemies.push("dianwei");
+    entities["xiucai"].enemies.push("zhangfei");
+    entities["xiucai"].fight();
+}
+
 console.log("!!!war broke out!!!");
 initialize();
-entities["xiucai"].enemies.push("zhangfei"); // by ajax
-entities["xiucai"].fight();
+test();
 update();
