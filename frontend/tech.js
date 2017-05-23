@@ -181,6 +181,7 @@ img.ix = this.endX;
 img.iy = this.endY;
 img.onload = function () { // XXX: JS中的this实在太灵活
     this.ictx.drawImage(img, this.ix-20, this.iy-20, 40, 40);
+    cfg.sndburst.currentTime = 0;
     cfg.sndburst.play();
 },
 img.src = "/frontend/material-library/burst.png";
