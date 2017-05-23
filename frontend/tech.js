@@ -3,16 +3,18 @@
 var environments = function () {
     var width = document.body.clientWidth;
     var height = document.body.clientHeight;
-    var war = document.getElementById("canvas-war");
-    war.width = width;
-    war.height = height;
+    var cvetts = document.getElementById("canvas-entities");
+    var cvblts = document.getElementById("canvas-bullets");
+    cvetts.width=cvblts.width=width,cvetts.height=cvblts.height=height;
 
     return {
         width: width,
         height: height,
-        ctx: war.getContext("2d")
+        ctxetts: cvetts.getContext("2d"),
+        ctxblts: cvblts.getContext("2d")
     };
 };
+var cfg = undefined;
 var entities = [];
 var ticks = 0;
 
@@ -49,7 +51,7 @@ function distance(p, pp) {
 }
 
 // 战场布局
-var layout = function (w, h, ctx, data) {
+var layout = function (w, h, bltsctx, ctx, data) {
     // 按矩形周长均匀分布
     // 按椭圆周长均匀分布
     // 按边缘距离泊松分布
@@ -63,7 +65,7 @@ var layout = function (w, h, ctx, data) {
     var centerY = h/2;
     var radius = Math.min(w, h);
     for (var i=0;i<n;i++) {
-        var ett = entity(data[i].id, data[i].name, data[i].logo, data[i].score, data[i].color, ctx);
+        var ett = entity(data[i].id, data[i].name, data[i].logo, data[i].score, data[i].color, bltsctx, ctx);
         ett.x = centerX + Math.cos(step*i)*radius*scale/2;
         ett.y = centerY + Math.sin(step*i)*radius*scale/2;
         entities[ett.id] = ett;
@@ -72,12 +74,13 @@ var layout = function (w, h, ctx, data) {
 };
 
 // 实体模型
-var entity = function (id, name, logo, score, color, ctx) {
+var entity = function (id, name, logo, score, color, bltsctx, ctx) {
     return {
         id: id,
         name: name,
         logo: logo || "/frontend/common/police.png",
         color: color,
+        bltsctx: bltsctx,
         memebers: [],
         vertexes: [], // reserved for 3d
         enemies: [],
@@ -111,6 +114,20 @@ var entity = function (id, name, logo, score, color, ctx) {
         },
         spark: function () {
             // 根据状态切换自身光环
+var img = new Image();
+img.ictx = this.ctx;
+img.ix = this.x;
+img.iy = this.y;
+if (this.logo.includes("police")) {
+    this.logo = "/frontend/material-library/v.jpg";
+}
+else {
+    this.logo = "/frontend/common/police.png";
+}
+img.onload = function () { // XXX: JS中的this实在太灵活
+    this.ictx.drawImage(img, this.ix-this.width/2, this.iy-this.height/2, this.width, this.height);
+},
+img.src = this.logo;
         },
         fight: function () {
             var bullet = function () {
@@ -168,6 +185,11 @@ img.src = "/frontend/material-library/burst.png";
                             return;
                         }
 
+// this.bctx.fillStyle = "black";
+// this.bctx.beginPath();
+// this.bctx.arc(x, y, 3, 0, 2*Math.PI, true);
+// this.bctx.fill();
+
                         this.bctx.fillStyle = this.bcolor;
                         this.bctx.beginPath();
                         this.bctx.arc(this.bx, this.by, 3, 0, 2*Math.PI, true);
@@ -190,7 +212,7 @@ img.src = "/frontend/material-library/burst.png";
                 warhead.startY = warhead.by = this.y;
                 warhead.endX = ett.x;
                 warhead.endY = ett.y;
-                warhead.bctx = this.ctx;
+                warhead.bctx = this.bltsctx;
                 warhead.bcolor = ett.color;
                 warhead.orbit = quadratic({x:ett.x,y:ett.y},{x:this.x,y:this.y});
                 warhead.emit();
@@ -201,13 +223,18 @@ img.src = "/frontend/material-library/burst.png";
 
 function initialize() {
     var data = [{id:"lvbu",name:"吕布",memebers:[],logo:"",score:20,color:"red"},{id:"guanyu",name:"关羽",memebers:[],logo:"",score:15,color:"green"},{id:"zhaoyun",name:"赵云",memebers:[],logo:"",score:40,color:"blue"},{id:"huangzhong",name:"黄忠",memebers:[],logo:"",score:30,color:"violet"},{id:"dianwei",name:"典韦",memebers:[],logo:"",score:25,color:"pink"},{id:"zhangfei",name:"张飞",memebers:[],logo:"",score:35,color:"yellow"},{id:"machao",name:"马超",memebers:[],logo:"",score:10,color:"silver"},{id:"xuchu",name:"许褚",memebers:[],logo:"",score:50,color:"cyan"},{id:"ganning",name:"甘宁",memebers:[],logo:"",score:90,color:"orange"},{id:"xiucai",name:"秀才",memebers:[],logo:"",score:65,color:"golden"}]; // by ajax
-    var cfg = environments();
-    layout(cfg.width, cfg.height, cfg.ctx, data);
+    cfg = environments();
+    layout(cfg.width, cfg.height, cfg.ctxblts, cfg.ctxetts, data);
 }
 
 function animate() {
+    // 擦出子弹图层
+    cfg.ctxblts.clearRect(0,0,cfg.width,cfg.height);
+
     for (var ett in entities) {
-        entities[ett].spark();
+        if (ticks%2 == 0) {
+            entities[ett].spark();
+        }
         for (var blt in entities[ett].bullets) {
             entities[ett].bullets[blt].fly();
         }
