@@ -6,12 +6,14 @@ var environments = function () {
     var cvetts = document.getElementById("canvas-entities");
     var cvblts = document.getElementById("canvas-bullets");
     cvetts.width=cvblts.width=width,cvetts.height=cvblts.height=height;
+    var sndburst = document.getElementById("audio-burst");
 
     return {
         width: width,
         height: height,
         ctxetts: cvetts.getContext("2d"),
-        ctxblts: cvblts.getContext("2d")
+        ctxblts: cvblts.getContext("2d"),
+        sndburst: sndburst
     };
 };
 var cfg = undefined;
@@ -179,6 +181,7 @@ img.ix = this.endX;
 img.iy = this.endY;
 img.onload = function () { // XXX: JS中的this实在太灵活
     this.ictx.drawImage(img, this.ix-20, this.iy-20, 40, 40);
+    cfg.sndburst.play();
 },
 img.src = "/frontend/material-library/burst.png";
 
