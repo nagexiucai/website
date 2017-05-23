@@ -1,5 +1,25 @@
 /* https://github.com/nagexiucai/website */
 
+::-webkit-scrollbar-track-piece {
+    background-color:black;
+    border:0;
+}
+::-webkit-scrollbar {
+    width:0;
+    height:0;
+}
+::-webkit-scrollbar-thumb {
+    background-color:black;
+    background-clip:padding-box;
+    border:0;
+    min-height:0;
+    min-width:0;
+}
+::-webkit-scrollbar-thumb:hover {
+    border:0;
+    background-color:black;
+}
+
 body {
     background: black;
 }
@@ -7,5 +27,4 @@ body {
 canvas {
     margin: 0;
     padding: 0;
-    border: 1px solid white;
 }
