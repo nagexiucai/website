@@ -2,6 +2,7 @@
     <div id="entity">
         <canvas id="canvas-entities">浏览器不支持H5~真可惜</canvas>
         <canvas id="canvas-bullets">浏览器不支持H5~真可惜</canvas>
+        <audio id="audio-emit" src="/frontend/material-library/emit.mp3">浏览器不支持H5~真可惜</audio>
         <audio id="audio-burst" src="/frontend/material-library/burst.mp3">浏览器不支持H5~真可惜</audio>
     </div>
     <div id="barrage"></div>

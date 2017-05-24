@@ -21,7 +21,7 @@
 }
 
 body {
-    background: black;
+    background: black url("/frontend/material-library/bg-earth-moon.png") no-repeat;
 }
 
 canvas {
