@@ -8,9 +8,6 @@ For example this plane is divided into 5x5 segments, which results into 36 verti
 Plane with 10 height/width and 5x5 segments, so as THREE.PlaneGeometry(10,10,5,5);
 */
 
-// obtain array with height data from img
-// height = -10000 + ((R * 256 * 256 + G * 256 + B) * 0.1) -- https://www.mapbox.com/blog/terrain-rgb/
-// height = (red * 256 + green + blue / 256) - 32768 -- https://mapzen.com/documentation/terrain-tiles/formats/
 function getHeightData(img) {
     var canvas = document.createElement("canvas");
     canvas.width = img.width;
@@ -31,7 +28,6 @@ function getHeightData(img) {
     return data;
 }
 
-// terrain
 var img = new Image();
 img.onload = function () {
     var square = document.getElementById("square");
