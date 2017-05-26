@@ -11,4 +11,7 @@
 meATnagexiuaiDOTcom(AT=@，DOT=.)
         </p>
     </div>
+    <div id="test">
+        <canvas id="joint"></canvas>
+    </div>
 </div>
