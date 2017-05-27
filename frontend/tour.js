@@ -39,7 +39,7 @@ img.onload = function () {
 
     // prepare environment
     var renderer = new THREE.WebGLRenderer();
-    renderer.setSize(img.width, img.height); // TODO: to be reactive
+    renderer.setSize(img.width*img.scalew, img.height*img.scalew); // TODO: to be reactive
     square.appendChild(renderer.domElement);
     var scene = new THREE.Scene();
     var camera = new THREE.PerspectiveCamera(75,1,0.1,1000);
@@ -90,7 +90,7 @@ img.onload = function () {
         // maximum=1826.519531 minimum=899.460938 difference=927.058593 -- huashan-14-13202-6518
         // maximum=2305.972656 minimum=324.000000 difference=1981.972656 -- huashan-10-825-407
         for (var i=0;i<plane.geometry.vertices.length;i++) {
-            plane.geometry.vertices[i].z = (data[i]-img.base)/img.scale;
+            plane.geometry.vertices[i].z = (data[i]-img.base)/img.scaleh;
         }
     }
 
@@ -119,35 +119,39 @@ img.onload = function () {
     render();
 };
 
-// var whole = function () {
-//     img.base = 1981.972656;
-//     img.scale = 1000;
-//     img.skin = "/frontend/material-library/huashan-texture-10-825-407.jpg";
-//     img.src = "/frontend/material-library/huashan-10-825-407.png";
-// }
-
-// var part = function () {
-//     img.base = 899.460938;
-//     img.scale = 100;
-//     img.skin = "/frontend/material-library/huashan-texture-14-13202-6518.jpg";
-//     img.src = "/frontend/material-library/huashan-14-13202-6518.png";
-// }
-
-var enlarged = function () {
-    img.base = 899.460938;
-    img.scale = 100;
-    img.skin = "/frontend/material-library/huashan-texture-14-[13199-6516,13204-6521].jpg";
-    img.src = "/frontend/material-library/huashan-14-[13199-6516,13204-6521].png";
+var whole = function () {
+    img.base = 1981.972656;
+    img.scaleh = 1000;
+    img.scalew = 2;
+    img.skin = "/frontend/material-library/huashan-texture-10-825-407.jpg";
+    img.src = "/frontend/material-library/huashan-10-825-407.png";
 }
 
-enlarged();
+var part = function () {
+    img.base = 899.460938;
+    img.scaleh = 100;
+    img.scalew = 2;
+    img.skin = "/frontend/material-library/huashan-texture-14-13202-6518.jpg";
+    img.src = "/frontend/material-library/huashan-14-13202-6518.png";
+}
 
-// if (Math.random()*10 > 5.0) {
-//     whole();
+
+if (Math.random()*10 > 5.0) {
+    whole();
+}
+else {
+    part();
+}
+
+// var enlarged = function () {
+//     img.base = 0;
+//     img.scaleh = 200;
+//     img.scalew = 1;
+//     img.skin = "/frontend/material-library/mount-hua-texture.png"; // huashan-texture-14-[13201-6517,13202,1619].png
+//     img.src = "/frontend/material-library/mount-hua.png"; // huashan-14-[13201-6517,13202,1619].png
 // }
-// else {
-//     part();
-// }
+
+// enlarged();
 
 // test
 var test = document.getElementById("test");
@@ -157,43 +161,27 @@ cvtest.height = 1536;
 var ctxtest = cvtest.getContext("2d");
 var x = 0;
 var y = 0;
-var west = 13199;
+var west = 13201;
 // var east = 13204;
-var north = 6516;
+var north = 6517;
 // var south = 6521;
 var root = "/frontend/material-library/";
-var prefix = "huashan-texture-14-";
-var suffix = ".jpg";
+var prefix = "huashan-14-"; // "huashan-texture-14-";
+var suffix = ".png"; // ".jpg";
 
 function joint() {
-// it does not work
-//     for (var i = 13199, x=0; i <= 13204; i++, x += 256) {
-//         for (var j = 6516, y=0; j <= 6521; j++, y += 256) {
-//             var jpg = root + i + "-" + j + ".jpg";
-
-//             var img = new Image();
-//             img.x = x;
-//             img.y = y;
-//             img.onload = function() {
-//                 console.log(img.src + " " + img.x + " " + img.y);
-//                 ctxtest.drawImage(img, img.x, img.y);
-//             };
-//             img.src = jpg;
-//         }
-//     }
-
     var img = new Image();
     img.onload = function() {
         ctxtest.drawImage(img, x*256, y*256);
         x += 1;
         west += 1;
-        if (x%6 == 0){
+        if (x%2 == 0){
             y += 1;
             north += 1;
             x = 0;
-            west = 13199; // note its origin
+            west = 13201; // note its origin
         }
-        if (y <= 5) {
+        if (y <= 2) {
             setTimeout(joint, 500);
         }
     };
@@ -206,4 +194,5 @@ function cv2img() {
     var img = new Image();  
     img.src = cvtest.toDataURL("image/png");
     test.appendChild(img);
+    test.style.display = "block";
 }

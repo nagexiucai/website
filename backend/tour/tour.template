@@ -11,7 +11,7 @@
 meATnagexiuaiDOTcom(AT=@，DOT=.)
         </p>
     </div>
-    <div id="test">
+    <div id="test" style="display:none;">
         <canvas id="joint"></canvas>
     </div>
 </div>
