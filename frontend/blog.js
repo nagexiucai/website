@@ -90,7 +90,6 @@ function powerSpectrum(which){
     var name = which.attributes["src"].nodeValue;
     var data = skills[name];
     if (data){
-        console.log(which.innerHTML);
         // 斑点
         var stantardWeightRadius = paper.width * 0.125; // 标准比重斑点半径
         var step = (Math.PI*2)/data.length;
@@ -126,7 +125,7 @@ function powerSpectrum(which){
 function esoterica(which){
     paper.style = "display:none;";
     $swf();
-    abstract.innerHTML = which.attributes["mark"].nodeValue
+    abstract.innerHTML = "<a target='_blank' href='" + "https://github.com/nagexiucai/manuscripts/blob/master/" + which.attributes["src"].nodeValue + "'>" + which.attributes["mark"].nodeValue + "<a/>"
     abstract.style = "display:inline-block;height:400px;"; // p标签不支持width/height属性
     indicator(which);
 }
@@ -139,5 +138,4 @@ function art(which){
     swf.setAttribute("src", url);
     swf.style = "display:inline-block;";
     indicator(which);
-    console.log(which.innerHTML);
 }
