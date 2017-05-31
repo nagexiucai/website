@@ -2,16 +2,10 @@
     <div id="square"></div>
     <div id="description">
         <p>
-现在准备了两张华山（及附近）的3D草图<br/>
-每次访问本站会随机显示其中一张<br/>
-可以通过鼠标左键点住草图<br/>
-同时上下左右移动鼠标来旋转草图<br/>
-可以滚动鼠标轮来缩放草图<br/>
-欢迎回馈建议或合作意向<br/>
+旋转：鼠标左键点住上下左右移动<br/>
+缩放：鼠标滚轮<br/>
+建议或合作意向<br/>
 meATnagexiuaiDOTcom(AT=@，DOT=.)
         </p>
-    </div>
-    <div id="test" style="display:none;">
-        <canvas id="joint"></canvas>
     </div>
 </div>
