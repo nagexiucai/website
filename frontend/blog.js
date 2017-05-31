@@ -128,10 +128,7 @@ function esoterica(which){
     $swf();
     abstract.innerHTML = which.attributes["mark"].nodeValue
     abstract.style = "display:inline-block;height:400px;"; // p标签不支持width/height属性
-    console.log(which.innerHTML);
-    var url = "http://note.youdao.com/share/?id=" + which.attributes["src"].nodeValue
     indicator(which);
-    setTimeout(function(){window.open(url)}, 5000);
 }
 
 // 在show区域嵌入优酷
