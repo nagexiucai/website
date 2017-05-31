@@ -3,7 +3,10 @@
 document.onready = function(){
     var swf = document.getElementById("swf");
     var paper = document.getElementById("paper");
+    var hitwrap = document.getElementById("hitwrap");
+    var hit = document.getElementById("hit");
     var abstract = document.getElementById("abstract");
+    var demo = document.getElementById("demo");
 };
 
 function $swf(){
@@ -33,12 +36,13 @@ var skills = {
           {"field":"etcd","color":"green","weight":0.4}],
     "php":[{"field":"laveral","color":"violet","weight":0.3},{"field":"ratchet ","color":"tan","weight":0.3}],
     "javascript":[{"field":"node","color":"brown","weight":0.3},
-                  {"field":"vue","color":"green","weight":0.7},
-                  {"field":"three","color":"blue","weight":0.8},
+                  {"field":"vue","color":"green","weight":0.6,"link":"/samples/cfgui/"},
+                  {"field":"three","color":"blue","weight":0.7,"link":"/samples/map3d/"},
                   {"field":"paper","color":"red","weight":0.5},
                   {"field":"chart","color":"navy","weight":0.4},
+                  {"field":"create","color":"tan","weight":0.3,"link":"/samples/wv2d/"},
                   {"field":"egret","color":"ochre","weight":0.3},
-                  {"field":"egret","color":"orange","weight":0.5}],
+                  {"field":"hv","color":"orange","weight":0.5,"link":"/samples/hv2d/"}],
     "lua":[{"field":"elua","color":"violet","weight":0.4}],
     "object-c":[{"field":"macos","color":"brown","weight":0.4}],
     "erlang":[{"field":"leofs","color":"green","weight":0.4},
@@ -83,10 +87,27 @@ var skills = {
     "biomedical":[{"field":"xray","color":"brown","weight":0.7},
                   {"field":"ecg","color":"blue","weight":0.5}]
 };
+var buffer = [];
+function clear() {
+    while (undefined != buffer.pop());
+}
+function handler(evt) {
+    for (var i=0; i<buffer.length; i++) {
+        var distance = Math.sqrt(Math.pow(evt.layerX-buffer[i].x,2) + Math.pow(evt.layerY-buffer[i].y,2));
+        if (buffer[i].r >= distance) {
+            if (!!buffer[i].link) {
+                hitwrap.href = buffer[i].link;
+                hit.click();
+            }
+        }
+    }
+}
 function powerSpectrum(which){
     $swf();
     abstract.style = "display:none;"
     paper.style = "display:inline-block;";
+    paper.addEventListener("click", handler);
+    clear();
     indicator(which);
     var name = which.attributes["src"].nodeValue;
     var data = skills[name];
@@ -104,6 +125,7 @@ function powerSpectrum(which){
             var flexFact = data.length/10 + 1;
             var x = widthCenter + Math.cos(step*i)*stantardWeightRadius*flexFact;
             var y = heightCenter + Math.sin(step*i)*stantardWeightRadius*flexFact;
+            buffer.push({x:x,y:y,r:weightRadiusOutter,link:data[i].link});
             ctx.fillStyle = "gray";
             ctx.beginPath();
             ctx.arc(x,y,weightRadiusOutter,0,Math.PI*2,true);
@@ -118,6 +140,9 @@ function powerSpectrum(which){
             ctx.font = "20px Cursive";
             ctx.textAlign = "center";
             ctx.fillText(data[i].field,x,y+5); // TODO: 绘制文本垂直居中补丁
+            if (!!data[i].link) {
+                ctx.drawImage(demo,x,y+5,demo.width,demo.height);
+            }
         }
     }
 }

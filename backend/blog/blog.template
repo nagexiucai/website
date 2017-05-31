@@ -68,5 +68,7 @@
         <!--<embed id="swf" style="display:none;" width="480px" height="400px" align="middle" quality="high" autostart="true" autorewind="true" loop="true" allowFullScreen="true" allowScriptAccess="always" type="application/x-shockwave-flash"></embed>-->
         <canvas id="paper" style="display:none;" width="480px" height="400px">浏览器不支持画布！</canvas>
         <p id="abstract" style="display:none;height:400px"></p>
+        <a id="hitwrap" href="/" style="display:none;" target="_blank"><span id="hit"></span></a>
+        <img id="demo" alt="demo" style="display:none;" src="/frontend/common/mark.png"/>
     </div>
 </div>
