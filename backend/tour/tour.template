@@ -2,10 +2,11 @@
     <div id="square"></div>
     <div id="description">
         <p>
-旋转：鼠标左键点住上下左右移动<br/>
-缩放：鼠标滚轮<br/>
+旋转：鼠标左键按住移动<br/>
+缩放：鼠标滚轮前后搓动<br/>
 建议或合作意向<br/>
-meATnagexiuaiDOTcom(AT=@，DOT=.)
+e={m:"me",n:"nagexiucai.com"}<br/>
+e.m@e.n
         </p>
     </div>
 </div>

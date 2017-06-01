@@ -12,5 +12,5 @@
             <p><a href="javascript:$topic();">^</a></p>
         </div>
     </div>
-    <canvas id="scratch" style="width:400px;height:400px;"></canvas>
+    <a href="/biz.html"><canvas id="scratch" style="width:400px;height:400px;"></canvas></a>
 </div>
