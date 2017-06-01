@@ -35,13 +35,12 @@ class Topic extends Bra {
             margin-bottom:5px;
         }
     </style>
-    <div>第<span id='amount'></span>位阅读</div>
+    <div id='amount'></div>
     <p>长按二维码打赏</p>
     <img src='/frontend/common/reward-wechat.png' alt='打赏二维码'>
     <div>
         <textarea id='customer' style='display:none;'>限200字</textarea>
         <button id='order' type='button' name='review' value='false' onclick='review(this);'>留言</button>
-        <div id='tip'></div>
         <ul id='recommendations'>
         </ul>
     </div>
@@ -49,7 +48,7 @@ class Topic extends Bra {
         var customer = document.getElementById('customer');
         var order = document.getElementById('order');
         var amount = document.getElementById('amount');
-        amount.innerHTML = '10000';
+        amount.innerHTML = '第' + '10000' + '位阅读';
         customer.oninput = function() {
             if (this.value.length > 200) {
                 order.innerHTML = '超200字';
@@ -71,11 +70,17 @@ class Topic extends Bra {
                 me.setAttribute('value', 'false');
                 customer.style = 'display:none;';
                 me.innerHTML = '留言';
-                // customer.innerHTML // upload by ajax
+                // upload by ajax
                 customer.value = '限200字';
             }
         }
-        // TODO: scroll to bottom of page then update
+        function interest(evt) {
+            if (Math.abs(document.body.scrollHeight - (document.body.scrollTop + document.body.clientHeight)) < 20) {
+                window.removeEventListener('scroll', interest);
+                // download by ajax then insert into recommendations
+            }
+        }
+        window.addEventListener('scroll', interest);
     </script>
 </div>";
     }
