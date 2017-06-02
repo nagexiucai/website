@@ -13,7 +13,6 @@ class Topic extends Bra {
         }
         $this->content = "
 <div class='topic'>
-    <object data='$this->svg' type='image/svg+xml'></object>
     <style type='text/css'>
         li {
             list-style-type:none;
@@ -35,11 +34,12 @@ class Topic extends Bra {
             margin-bottom:5px;
         }
     </style>
+    <p>长按二维码关注</p>
+    <img src='/frontend/common/public-wechat.png' alt='关注二维码'>
+    <object data='$this->svg' type='image/svg+xml'></object>
     <div id='amount'></div>
     <p>长按二维码打赏</p>
     <img src='/frontend/common/reward-wechat.png' alt='打赏二维码'>
-    <p>长按二维码关注</p>
-    <img src='/frontend/common/public-wechat.png' alt='关注二维码'>
     <div>
         <textarea id='customer' style='display:none;'>限200字</textarea>
         <button id='order' type='button' name='review' value='false' onclick='review(this);'>留言</button>
