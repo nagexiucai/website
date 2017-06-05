@@ -1,0 +1,198 @@
+<html>
+    <head>
+        <meta charset='UTF-8'/>
+        <meta name='keywords' content='那个秀才 云计算 大数据 神经网络 机器学习 人工智能 物联网 区块链 Python JavaScript IOT AI 3D GIS OpenStack Docker BlockChain'/>
+        <meta name='description' content='那个秀才'/>
+        <link rel='icon' type='image/x-icon' href='/frontend/common/favicon.ico'>
+        <link rel='stylesheet' type='text/css' href='/frontend/common/fullscreen.css'>
+        <script type='text/javascript' src='/frontend/common/browser-percept.js'></script>
+        <title>那个秀才|话题集锦</title>
+        <style type='text/css'>
+            body {
+                background-image:url('/frontend/material-library/bg-pythagoras-tree.jpg');
+            }
+            ul {
+                width:80%;
+                height:100%;
+            }
+            li {
+                list-style-type:none;
+                width:80%;
+                height:100px;
+                border:2px solid white;
+            }
+            ul,
+            li {
+                margin-left:auto;
+                margin-right:auto;
+                padding:0;
+            }
+            li:nth-child(odd) {
+                background-color:tan;
+            }
+            li:nth-child(even) {
+                background-color:pink;
+            }
+            a {
+                text-decoration-line:none;
+                color:green;
+            }
+            .tip,
+            .attributes,
+            .abstract {
+                display:block;
+            }
+            .tip {
+                font-size:35px;
+                color:black;
+            }
+            .attributes {
+                line-height:30px;
+                font-size:15px;
+                color:white;
+            }
+            .abstract {
+                font-size:20px;
+                color:gray;
+            }
+            .favour {
+                width:21px;
+                height:21px;
+                display:inline-block;
+                background-image:url('/frontend/common/favour.png');
+                background-repeat:no-repeat;
+            }
+            .pointer {
+                font-size:25px;
+            }
+            .pointer:hover {
+                font-size:45px;
+            }
+        </style>
+    </head>
+    <body>
+        <div class='fullscreen'>
+            <ul id='catalog'>
+                <li>
+                    <a class='item' href=''>
+                        <span class='tip'>人民的名义简谱</span>
+                        <span class='attributes'>
+                            <span class='favour'></span>
+                            <span class='heat'>65536</span>
+                            <span class='author'>zhouguoqiang.cn</span>
+                        </span>
+                        <span class='abstract'>梳理戏中人物关系，剖析现实生活问题。</span>
+                    </a>
+                </li>
+                <li>
+                    <a class='item' href=''>
+                        <span class='tip'>物联网技术栈</span>
+                        <span class='attributes'>
+                            <span class='favour'></span>
+                            <span class='heat'>32768</span>
+                            <span class='author'>zhouguoqiang.cn</span>
+                        </span>
+                        <span class='abstract'>搜罗IOT相关组件，平台框架、终端芯片等。</span>
+                    </a>
+                </li>
+                <li>
+                    <a class='item' href=''>
+                        <span class='tip'>人工智能基础学科</span>
+                        <span class='attributes'>
+                            <span class='favour'></span>
+                            <span class='heat'>16384</span>
+                            <span class='author'>thisstack.com</span>
+                        </span>
+                        <span class='abstract'>英国伯明翰大学一门课程的学习笔记。</span>
+                    </a>
+                </li>
+                <li>
+                    <a class='item' href=''>
+                        <span class='tip'>IT教育私有云</span>
+                        <span class='attributes'>
+                            <span class='favour'></span>
+                            <span class='heat'>8192</span>
+                            <span class='author'>thisstack.com</span>
+                        </span>
+                        <span class='abstract'>不是所有云平台都适合用OpenStack。</span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+        <div class='turning'>
+            <a class='pointer' href='javascript:forward();'>向前<<</a>
+            <a class='pointer' href='javascript:backward();'>>>向后</a>
+        </div>
+        <div id='beian'>
+            <a href='http://www.miitbeian.gov.cn/' target='_blank'>陕ICP备14011708号-1</a>
+            <a href='http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=61019002000333' target='_blank'>
+                <span></span>
+                陕公网安备61019002000333号
+            </a>
+        </div>
+    </body>
+    <script type='text/javascript'>
+        var curpg = 0;
+        var total = 0;
+        var coverage = 0;
+        var catalog = document.getElementById("catalog");
+        function initialize() {
+            // synchronized by ajax
+            // total = x;
+            coverage = Math.floor(document.body.clientHeight / 100);
+            var differ = catalog.getElementsByTagName("li").length - coverage;
+        }
+        function turning() {
+            // fetched by ajax
+            console.log(curpg);
+        }
+        function forward() {
+            if (curpg > 0) {
+                curpg--;
+            }
+            turning();
+        }
+        function backward() {
+            if (curpg < 0) {
+                curpg++;
+            }
+            turning();
+        }
+        function fill(topics) {
+            /*
+            ** [{tip:"tip",heat:"heat",author:"author",abstract:"abstract"}]
+            */
+            for (var t in topics) {
+                var li = document.createElement("li");
+                var a = document.createElement("a");
+                a.setAttribute("class", "item");
+                a.setAttribute("href", "");
+                var tip = document.createElement("span");
+                tip.setAttribute("class", "tip");
+                tip.innerHTML = t["tip"];
+                var attributes = document.createElement("span");
+                attributes.setAttribute("class", "attributes");
+                var favour = document.createElement("span");
+                favour.setAttribute("class", "favour");
+                var heat = document.createElement("span");
+                heat.setAttribute("class", "heat");
+                heat.innerHTML = t["heat"];
+                var author = document.createElement("span");
+                author.setAttribute("class", "author");
+                author.innerHTML = t["author"];
+                var abstract = document.createElement("abstract");
+                abstract.setAttribute("class", "abstract");
+                abstract.innerHTML = t["abstract"];
+                attributes.appendChild(favour);
+                attributes.appendChild(heat);
+                attributes.appendChild(author);
+                a.appendChild(tip);
+                a.appendChild(attributes);
+                a.appendChild(abstract);
+                li.appendChild(a);
+                catalog.appendChild(li);
+            }
+        }
+        initialize();
+    </script>
+</html>
