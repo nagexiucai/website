@@ -1,3 +1,16 @@
 <div class="fullscreen">
-coming soon!
+    <div class="container">
+        <div class="projects">
+            <div class="project shityun" onclick="show(this);" value="shityun">祥云</div>
+            <div class="project cfgui" onclick="show(this);" value="cfgui">CFGUI</div>
+            <div class="project wellguard" onclick="show(this);" value="wellguard">看井</div>
+            <div class="project nxpay" onclick="show(this);" value="nxpay">NXPAY</div>
+        </div>
+    </div>
+    <div class="cover" id="cover" style="display:none;">
+        <div class="close">
+            <div class="kill">X</div>
+        </div>
+        <iframe id="iframe" frameborder="0" width="100%" height="100%"></iframe>
+    </div>
 </div>

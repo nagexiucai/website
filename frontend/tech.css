@@ -1,1 +1,64 @@
 /* https://github.com/nagexiucai/website */
+
+html {
+    overflow-y: hidden;
+}
+
+.container {
+  position: absolute;
+  top: 30%;
+  width: 100%;
+}
+
+.projects {
+    width: 75%;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+.project {
+    display: inline-block;
+    width: 192px;
+    height: 128px;
+    background-color: silver;
+    border: 1px solid white;
+    background-repeat: no-repeat;
+}
+
+.project:hover {
+    cursor: pointer;
+}
+
+.cover {
+    position: absolute;
+    z-index: 999;
+    width: 100%;
+}
+
+.close {
+    width: 100%;
+}
+
+.kill {
+    width: 40px;
+    height: 20px;
+    font-size: 18px;
+    line-height: 20px;
+    float: right;
+}
+
+.shityun {
+    background-image: url("/frontend/material-library/logo-shityun.png");
+}
+
+.cfgui {
+    background-image: url("/frontend/material-library/logo-cfgui.png");
+}
+
+.wellguard {
+    background-image: url("/frontend/material-library/logo-wellguard.png");
+}
+
+.nxpay {
+    background-image: url("/frontend/material-library/logo-nxpay.png");
+}

@@ -9,7 +9,7 @@ class Tech extends Bra {
     {
         $this->title = "那个秀才|此栈";
         $this->link = "<link rel='stylesheet' type='text/css' href='/frontend/tech.css'>";
-        $this->hscript = "<script type='text/javascript' src='/frontend/tech.js'></script>";
+        $this->bscript = "<script type='text/javascript' src='/frontend/tech.js'></script>";
         $this->content = "./backend/tech/tech.template";
     }
 }
