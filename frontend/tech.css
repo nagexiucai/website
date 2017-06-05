@@ -1,9 +1,5 @@
 /* https://github.com/nagexiucai/website */
 
-html {
-    overflow-y: hidden;
-}
-
 .container {
   position: absolute;
   top: 30%;
