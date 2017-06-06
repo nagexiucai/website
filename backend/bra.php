@@ -25,6 +25,7 @@ class Bra {
         echo "<link rel='icon' type='image/x-icon' href='/frontend/common/favicon.ico'>";
         echo "<link rel='stylesheet' type='text/css' href='/frontend/common/fullscreen.css'>";
         echo "<script type='text/javascript' src='/frontend/common/browser-percept.js'></script>";
+        echo "<script type='text/javascript' src='/frontend/common/utils.js'></script>";
         echo $this->link;
         echo $this->hscript;
         echo "<title>".$this->title."</title>";
