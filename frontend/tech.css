@@ -58,3 +58,14 @@
 .nxpay {
     background-image: url("/frontend/material-library/logo-nxpay.png");
 }
+
+a {
+    text-decoration-line: none;
+    color: black;
+}
+
+a:hover {
+    background-color: black;
+    color: white;
+    cursor: pointer;
+}

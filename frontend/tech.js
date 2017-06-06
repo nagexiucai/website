@@ -1,10 +1,10 @@
 // https://github.com/nagexiucai/website
 
+var cover = document.getElementById("cover");
+var iframe = document.getElementById("iframe");
+
 function show(what) {
     var todo = what.getAttribute("value");
-    var cover = document.getElementById("cover");
     cover.style.display = "block";
-    var iframe = document.getElementById("iframe");
-    
     iframe.src = "/" + todo + "/";
 }
