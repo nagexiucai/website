@@ -44,7 +44,7 @@
                         <ul>
                             <li onclick="esoterica(this);" src="Poesy.md" mark="写写诗歌，谈谈情感。">个人诗集</li>
                             <li onclick="esoterica(this);" src="Music.md" mark="乐律，尤克里里、吉它、二胡、唢呐，词曲，演奏。">知音</li>
-                            <li onclick="esoterica(this);" src="AI.md" mark="适合AI初学者。<br/>从基础学科回顾开始，到成功训练一个基于CNN的机器打分系统结束。">人工智能入门</li>
+                            <li onclick="esoterica(this);" src="AI.md" mark="适合AI初学者。<br/>从基础学科回顾开始，到成功训练一个基于CNN的机器打分系统结束。<br/><a href='/courses/vgg-experiment.pdf' style='color:green;'>VGG实验</a>">人工智能入门</li>
                             <li onclick="esoterica(this);" src="IOT那些事儿.md" mark="针对物联网感兴趣却对相关技术栈了解不全面的朋友。<br/>通过一个演示系统的不断迭代，彻底掌握物联网技术。">IOT那些事儿</li>
                             <li onclick="esoterica(this);" src="Python半深入讲义.md" mark="人生苦短，快用派森！<br/>快速上手Python编程，快速搭建需求解决方案原型，快速迭代，品味Python的快。<br/>不单单是语法和基本库、Web框架，还有解释型语言虚拟机的实现。">Python半深入讲义</li>
                         </ul>
