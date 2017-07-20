@@ -12,7 +12,7 @@ class Topic extends Bra {
             $this->svg = "/frontend/material-library/default.svg";
         }
         $this->content = "
-<div class='logo-in-wechat' style='width:0;height:0;margin:0 auto;visibility:hidden;'>
+<div class='logo-in-wechat' style='display:none;'>
     <img src='/frontend/common/logo.jpg'>
 </div>
 <div class='topic'>
