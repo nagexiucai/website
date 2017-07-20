@@ -706,7 +706,7 @@
     <polygon
        style="fill:#0000f0;stroke:#000000;fill-opacity:0.08627451"
        id="polygon3591"
-       points="393,-176 461,-176 461,-212 461,-212 393,-212 " />
+       points="393,-176 476,-176 476,-212 461,-212 393,-212 " />
     <text
        style="font-size:14px;font-style:italic;text-anchor:start;font-family:URW Palladio L"
        id="text3593"
@@ -724,7 +724,7 @@
     <polygon
        style="fill:#00c800;stroke:#000000;fill-opacity:0.19607843"
        id="polygon3598"
-       points="192.75,0 267.25,0 267.25,-36 267.25,-36 192.75,-36 " />
+       points="192.75,0 283.25,0 283.25,-36 267.25,-36 192.75,-36 " />
     <text
        style="font-size:14px;font-style:italic;text-anchor:start;font-family:URW Palladio L"
        id="text3600"
@@ -806,7 +806,7 @@
     <polygon
        style="fill:#00c800;stroke:#000000;fill-opacity:0.19607843"
        id="polygon3628"
-       points="389.75,0 464.25,0 464.25,-36 464.25,-36 389.75,-36 " />
+       points="389.75,0 479.25,0 479.25,-36 464.25,-36 389.75,-36 " />
     <text
        style="font-size:14px;font-style:italic;text-anchor:start;font-family:URW Palladio L"
        id="text3630"
