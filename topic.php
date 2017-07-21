@@ -39,6 +39,15 @@ class Topic extends Bra {
             margin-top:5px;
             margin-bottom:5px;
         }
+        .home {
+            text-decoration-line: none;
+            background-color: #CDDC39;
+            color: #03A9F4;
+            font-size: 26px;
+            border: 1px #2196F3 solid;
+            border-radius: 5px;
+            line-height: 26px;
+        }
     </style>
     <p>长按二维码关注</p>
     <img src='/frontend/common/public-wechat.jpg' alt='关注二维码'>
@@ -51,6 +60,7 @@ class Topic extends Bra {
         <button id='order' type='button' name='review' value='false' onclick='review(this);'>留言</button>
         <ul id='recommendations'>
         </ul>
+        <a class='home' href='/topic.html'>返回话题列表</a>
     </div>
     <script type='text/javascript'>
         var customer = document.getElementById('customer');
