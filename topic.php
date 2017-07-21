@@ -12,11 +12,14 @@ class Topic extends Bra {
             $this->svg = "/frontend/material-library/default.svg";
         }
         $this->content = "
-<div class='logo-in-wechat' style='display:none;'>
+<div class='logo-in-wechat'>
     <img src='/frontend/common/logo.jpg'>
 </div>
 <div class='topic'>
     <style type='text/css'>
+        .logo-in-wechat {
+            display:none;
+        }
         li {
             list-style-type:none;
         }
@@ -38,7 +41,7 @@ class Topic extends Bra {
         }
     </style>
     <p>长按二维码关注</p>
-    <img src='/frontend/common/public-wechat.png' alt='关注二维码'>
+    <img src='/frontend/common/public-wechat.jpg' alt='关注二维码'>
     <object data='$this->svg' type='image/svg+xml'></object>
     <div id='amount'></div>
     <p>长按二维码打赏</p>
