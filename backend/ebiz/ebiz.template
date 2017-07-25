@@ -1,6 +1,6 @@
 <div class="fullscreen">
     <div class="ribbon">
-        <span class="red"></span><span class="green"></span><span class="blue"></span>
+        <div class="x"></div><div class="y"></div><div class="z"></div>
     </div>
     <div class="container">
         <div class="navigator">
