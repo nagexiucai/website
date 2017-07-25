@@ -1,27 +1,59 @@
 /* https://github.com/nagexiucai/website */
 
+html,
 body {
-    overflow-y: hidden;
+    overflow-y:hidden;
 }
 
-.fullscreen {
-    overflow-y: scroll;
+.container {
+    position:relative;
+    height:100%;
 }
 
-.grid-item {
-    float: left;
-    width: 420px;
-    height: 240px;
-    border: 2px solid hsla(0, 0%, 0%, 0.5);
+.navigator {
+    z-index:0;
+    position:fixed;
+    top:0;
+    width:111px;
+    height:100%;
+    overflow-y:scroll;
+    background-color:lightgray;
+    color:gray;
 }
 
-/*
-.item {
-    width: 420px;
-    height: 240px;
-    background-image: url("/frontend/material-library/rippling-wheat.png");
-    background-repeat: no-repeat;
-    border: 1px solid white;
-    display: inline-block;
+.views {
+    margin-left:111px;
+    margin-right:0;
+    height:100%;
+    overflow-y:scroll;
+    background-image:url("/frontend/material-library/logo-ebiz.png");
 }
-*/
+
+a {
+    color:gray;
+    text-decoration:none;
+}
+a:hover {
+    color:blueviolet;
+    font-weight:bolder;
+}
+
+dt {
+    font-size: x-large;
+}
+
+.chapter {
+    border-bottom:1px solid lightgray;
+}
+.section {
+    font-size:xx-large;
+}
+dd,
+.details {
+    font-size:large;
+}
+
+img {
+    display:block;
+    margin:0 auto;
+}

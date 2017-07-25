@@ -1,38 +1,82 @@
 <div class="fullscreen">
-<div class="grid" data-masonry='{"itemSelector":".grid-item","columnWidth":200 }'>
-    <div class="grid-item">
-        <img src="/frontend/material-library/rippling-wheat.png" alt="wheat">
+    <div class="ribbon">
+        <span class="red"></span><span class="green"></span><span class="blue"></span>
     </div>
-    <div class="grid-item">
-        <img src="/frontend/material-library/rippling-wheat.png" alt="wheat">
+    <div class="container">
+        <div class="navigator">
+            <dl>
+                <dt><a href="#cunju">村居</a></dt>
+                    <dd><a href="#laozhai">老宅</a></dd>
+                    <dd><a href="#xinfang">新房</a></dd>
+                    <dd>狗窝</dd>
+                    <dd>鸡笼</dd>
+                    <dd>猪圈</dd>
+                    <dd>羊舍</dd>
+                    <dd>牛棚</dd>
+                    <dd>跳舞</dd>
+                    <dd>棋牌</dd>
+                    <dd>商贩</dd>
+                    <dd>出行</dd>
+                    <dd>汲水</dd>
+                    <dd>道路</dd>
+                    <dd>诊所</dd>
+                    <dd>科教</dd>
+                    <dd>巷论</dd>
+                <dt><a href="#nonghuo">农活</a></dt>
+                    <dd><a href="#bozhong">播种</a></dd>
+                    <dd><a href="#shifei">施肥</a></dd>
+                    <dd><a href="#guangai">灌溉</a></dd>
+                    <dd>垦地</dd>
+                    <dd>还田</dd>
+                    <dd><a href="#shouge">收割</a></dd>
+                    <dd>除草</dd>
+                    <dd>杀虫</dd>
+                    <dd>去病</dd>
+                    <dd>授粉</dd>
+                    <dd>嫁接</dd>
+                <dt>民俗</dt>
+                    <dd>嫁娶</dd>
+                    <dd>新丁</dd>
+                    <dd>丧葬</dd>
+                    <dd>社火</dd>
+                    <dd>庙会</dd>
+                    <dd>撵兔</dd>
+                    <dd>拜年</dd>
+                    <dd>饮食</dd>
+                    <dd>戏曲</dd>
+                    <dd>艺人</dd>
+                    <dd>族长</dd>
+                    <dd>称谓</dd>
+                <dt>工匠</dt>
+                    <dd>瓦匠</dd>
+                    <dd>木匠</dd>
+                    <dd>漆工</dd>
+                    <dd>石匠</dd>
+                    <dd>码工</dd>
+                    <dd>焊工</dd>
+                    <dd>杂工</dd>
+            </dl>
+        </div>
+        <div class="views">
+            <article class="chapter" id="cunju" name="村居">
+                <p class="section" id="laozhai">老宅</p>
+                <p class="details">木瓦结构、夯土墙体为主。</p>
+                <p class="section" id="xinfang">新房</p>
+                <p class="details">钢筋混凝土结构、红砖墙体为主。</p>
+            </article>
+            <article class="chapter" id="nonghuo" name="农活">
+                <p class="section" id="bozhong">播种</p>
+                <p class="details">不同农作物的播种方式迥异，大体分为点播、转播、直播。</p>
+                <p class="section" id="shifei">施肥</p>
+                <p class="details">庄稼一枝花，全靠肥当家。从老农总结的谚语足以看出肥的重要性。</p>
+                <p class="section" id="guangai">灌溉</p>
+                <p class="details">水是生命之源。没有水、甚至短缺水的地方，都是不能种庄稼的。</p>
+                <p class="section" id="shouge">收割</p>
+                <p class="details">
+                    麦浪。
+                    <img src="/frontend/material-library/rippling-wheat.png" alt="rippling-wheat"/>
+                </p>
+            </article>
+        </div>
     </div>
-    <div class="grid-item">
-        <img src="/frontend/material-library/rippling-wheat.png" alt="wheat">
-    </div>
-</div>
-<!--
-    <div class="item"><div class="despcription"></div></div>
-    <div class="item"><div class="despcription"></div></div>
-    <div class="item"><div class="despcription"></div></div>
-    <div class="item"><div class="despcription"></div></div>
-    <div class="item"><div class="despcription"></div></div>
-    <div class="item"><div class="despcription"></div></div>
-    <div class="item"><div class="despcription"></div></div>
-    <div class="item"><div class="despcription"></div></div>
-    <div class="item"><div class="despcription"></div></div>
-    <div class="item"><div class="despcription"></div></div>
-    <div class="item"><div class="despcription"></div></div>
-    <div class="item"><div class="despcription"></div></div>
-    <div class="item"><div class="despcription"></div></div>
-    <div class="item"><div class="despcription"></div></div>
-    <div class="item"><div class="despcription"></div></div>
-    <div class="item"><div class="despcription"></div></div>
-    <div class="item"><div class="despcription"></div></div>
-    <div class="item"><div class="despcription"></div></div>
-    <div class="item"><div class="despcription"></div></div>
-    <div class="item"><div class="despcription"></div></div>
-    <div class="item"><div class="despcription"></div></div>
-    <div class="item"><div class="despcription"></div></div>
-    <div class="item"><div class="despcription"></div></div>
--->
 </div>
