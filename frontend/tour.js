@@ -29,7 +29,7 @@ img.onload = function () {
     var data = getHeightData(img);
 
     var renderer = new THREE.WebGLRenderer();
-    renderer.setSize(img.width*img.scalew, img.height*img.scalew);
+    renderer.setSize(img.width*img.scalex, img.height*img.scaley);
     square.appendChild(renderer.domElement);
     var scene = new THREE.Scene();
     var camera = new THREE.PerspectiveCamera(75,1,0.1,1000);
@@ -53,7 +53,7 @@ img.onload = function () {
 
     var scale = function () {
         for (var i=0;i<plane.geometry.vertices.length;i++) {
-            plane.geometry.vertices[i].z = (data[i]-img.base)/img.scaleh;
+            plane.geometry.vertices[i].z = (data[i]-img.base)/img.scalez;
         }
     }
 
@@ -72,8 +72,9 @@ img.onload = function () {
 
 var huashan = function () {
     img.base = 899.460938;
-    img.scaleh = 100;
-    img.scalew = 2;
+    img.scalex = 2;
+    img.scaley = 2;
+    img.scalez = 100;
     img.skin = "/frontend/material-library/mount-hua-texture.png";
     img.src = "/frontend/material-library/mount-hua.png";
 }
