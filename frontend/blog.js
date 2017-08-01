@@ -21,6 +21,9 @@ function indicator(which){
         lis[i].removeAttribute("style");
     }
     which.setAttribute("style", "color:red;");
+    var a = document.createElement("a");
+    a.setAttribute("href", "#show");
+    a.click();
 }
 
 // 在show区域展示图表
