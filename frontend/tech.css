@@ -26,14 +26,16 @@
 }
 
 .cover {
-    position: absolute;
-    z-index: 999;
+    position: fixed;
+    z-index: 88;
     width: 100%;
     background-color: rgba(255,255,255,0.875);
 }
 
 .close {
-    width: 100%;
+    position: fixed;
+    z-index: 99;
+    with: 100%;
 }
 
 .kill {
@@ -42,6 +44,11 @@
     font-size: 18px;
     line-height: 20px;
     float: right;
+}
+
+.kill a {
+    color: red;
+    border: 1px solid gray;
 }
 
 .shityun {

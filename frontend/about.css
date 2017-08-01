@@ -6,12 +6,9 @@
 }
 
 #introduction {
-    height: 30%;
 }
 
 #milestone {
-    height: 30%;
-    overflow-y: auto;
 }
 
 .hyperlinklist a {
@@ -45,4 +42,8 @@ a:hover {
 p {
     margin-top: 0;
     margin-bottom: 0;
+}
+
+.patch {
+    border-bottom: 20px solid white;
 }

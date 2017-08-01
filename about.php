@@ -27,6 +27,11 @@ class About extends Bra {
     <p id='milestone-content'>
         <a href='#beian'>2017-05-03，通过公安部备案！</a>
         <a href='#beian'>2017-03-23，通过工信部备案！</a>
+        <a href='http://zhouguoqiang.cn/'>2017-04-16，Bob·NX个人部落阁发布！</a>
+        <a href='http://thisstack.com/'>2017-05-01，此栈荣耀开启！</a>
+        <a href='http://pahuashan.com/'>2017-05-13，爬华山3D惊艳归来！</a>
+        <a href='http://hongnong.wang.com/'>2017-07-26，弘农王低调上线！</a>
+        <a href='http://nagexiucai.com/'>2017-08-01，那个秀才话题栏目通过试运营！</a>
     </p>
 </div>
 <div id='friend' class='hyperlinklist'>
@@ -37,6 +42,7 @@ class About extends Bra {
         <a href='http://pahuashan.com/'>爬华山</a>
         <a href='http://zhouguoqiang.cn/'>柳东</a>
     </p>
+    <p class='patch'></p>
 </div>
                 ";
                 break;

@@ -1,10 +1,5 @@
 /* https://github.com/nagexiucai/website */
 
-html,
-body {
-    overflow-y:hidden;
-}
-
 .ribbon {
     z-index:99;
     position:fixed;
@@ -54,7 +49,6 @@ body {
     margin-left:111px;
     margin-right:0;
     height:100%;
-    overflow-y:scroll;
     background-image:url("/frontend/material-library/logo-ebiz.png");
 }
 
@@ -85,12 +79,4 @@ dd,
 img {
     display:block;
     margin:0 auto;
-}
-
-
-#beian {
-    position:fixed;
-    top:100%;
-    width:100%;
-    margin-top:-18px;
 }

@@ -12,6 +12,7 @@ class Topic extends Bra {
             $this->svg = "/frontend/material-library/default.svg";
         }
         $this->content = "
+<div class='fullscreen'>
 <div class='logo-in-wechat'>
     <img src='/frontend/common/logo.jpg'>
 </div>
@@ -44,9 +45,10 @@ class Topic extends Bra {
             background-color: #CDDC39;
             color: #03A9F4;
             font-size: 26px;
-            border: 1px #2196F3 solid;
+            border: 1px solid #2196F3;
             border-radius: 5px;
             line-height: 26px;
+            border-bottom: 20px solid black;
         }
     </style>
     <p>长按二维码关注</p>
@@ -100,6 +102,7 @@ class Topic extends Bra {
         }
         window.addEventListener('scroll', interest);
     </script>
+</div>
 </div>";
     }
 }
