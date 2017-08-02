@@ -85,6 +85,9 @@ class Topic extends Bra {
                 customer.style = 'display:block;';
                 me.innerHTML = '发送';
                 customer.focus();
+                var a = document.createElement('a');
+                a.setAttribute('href', '#customer');
+                a.click();
             }
             else {
                 me.setAttribute('value', 'false');
