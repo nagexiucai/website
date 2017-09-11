@@ -31,8 +31,9 @@ var skills = {
     "python":[{"field":"wxwidgets","color":"violet","weight":0.6},
               {"field":"tornado","color":"green","weight":0.7},
               {"field":"interpreter","color":"navy","weight":0.6},
+              {"field":"openstack","color":"red","weight":0.8},
               {"field":"sklearn","color":"blue","weight":0.5},
-              {"field":"openstack","color":"red","weight":0.8}],
+              {"field":"tensorflow","color":"orange","weight":0.6}],
     "swift":[{"field":"iphone","color":"brown","weight":0.4},
              {"field":"iwatch","color":"blue","weight":0.4}],
     "go":[{"field":"docker","color":"red","weight":0.4},
@@ -83,7 +84,8 @@ var skills = {
                      {"field":"proteus","color":"navy","weight":0.5}],
     "algorithm":[{"field":"search","color":"red","weight":0.6},
                  {"field":"filter","color":"navy","weight":0.5},
-                 {"field":"cnn","color":"brown","weight":0.7}],
+                 {"field":"cnn","color":"brown","weight":0.7},
+                 {"field":"vgg","color":"orange","weight":0.6,"link":"/courses/vgg-experiment.pdf"}],
     "radio":[{"field":"radar","color":"brown","weight":0.7},
              {"field":"antenna","color":"green","weight":0.3},
              {"field":"hfss","color":"blue","weight":0.7}],
@@ -154,7 +156,7 @@ function powerSpectrum(which){
 function esoterica(which){
     paper.style = "display:none;";
     $swf();
-    abstract.innerHTML = "<a target='_blank' href='" + "https://github.com/nagexiucai/manuscripts/blob/master/" + which.attributes["src"].nodeValue + "'>" + which.attributes["mark"].nodeValue + "<a/>"
+    abstract.innerHTML = "<a target='_blank' href='" + "https://github.com/nagexiucai/manuscripts/blob/master/" + which.attributes["src"].nodeValue + "'>" + which.attributes["mark"].nodeValue + "<br/><font color='red'>点此继续……</font><a/>"
     abstract.style = "display:inline-block;height:400px;"; // p标签不支持width/height属性
     indicator(which);
 }
