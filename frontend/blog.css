@@ -28,3 +28,11 @@ a {
     text-decoration: none;
     color: inherit;
 }
+
+.bio-downloads {
+    color: gray;
+}
+.bio-downloads:hover {
+    cursor: pointer;
+    color: lightgray;
+}

@@ -56,7 +56,7 @@
                             <li><a target="_blank" href="http://jackieevancho.com">Jackie-Evancho</a></li>
                             <li><a target="_blank" href="http://amira-online.com">Amira-Willighagen</a></li>
                             <li><a target="_blank" href="http://laurabretan.com">Laura-Lebtan</a></li>
-                            <li><a target="_blank" href="http://i.youku.com/nagexiucai">酷秀更多……</a></li>
+                            <li><a target="_blank" href="http://i.youku.com/nagexiucai">Show more...</a></li>
                         </ul>
                     </td>
                 </tr>
@@ -75,5 +75,9 @@
         <p id="abstract" style="display:none;height:400px"></p>
         <a id="hitwrap" href="/" style="display:none;" target="_blank"><span id="hit"></span></a>
         <img id="demo" alt="demo" style="display:none;" src="/frontend/common/mark.png"/>
+    </div>
+    <div id="bio">
+        <div class="bio-downloads" onclick="biodownloads();">BioDownloads</div>
+        <div id="biodownloads"></div>
     </div>
 </div>

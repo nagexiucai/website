@@ -170,3 +170,24 @@ function art(which){
     swf.style = "display:inline-block;";
     indicator(which);
 }
+
+// 简历下载
+function biodownloads(){
+    // var html = "<form action='/backend/blog/bio.php' method='post' onsubmit='return emailCheck(this);'><button type='button' disabled='disabled' style='color:black;'>E-Mail:</button><input type='text' name='email'/><input type='submit' name='intent' value='Apply'/></form>";
+    var html = "<form action='/backend/blog/bio.php' method='post'><button type='button' disabled='disabled' style='color:black;'>E-Mail:</button><input type='email' name='email'/><input type='submit' name='intent' value='Apply'/></form>";
+    var bd = document.getElementById("biodownloads");
+    bd.innerHTML = html;
+}
+
+/*
+function emailCheck(which){
+    var pattern = /^\w+[-+.]\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*$/;
+    var _ = pattern.test(which.email.value);
+    if (_){
+        return true;
+    }
+    else {
+        alert("请输入合法邮箱地址！");
+    }
+}
+*/
