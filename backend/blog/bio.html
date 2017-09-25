@@ -1,0 +1,631 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>简历|那个秀才</title>
+        <style rel="stylesheet" type="text/css">
+            @charset "UTF-8";a,b,body,button,dd,div,dl,em,footer,form,h1,h2,h3,h4,h5,h6,i,input,label,li,nav,p,select,span,td,textarea,u,ul {
+                padding: 0;
+                margin: 0;
+                -webkit-tap-highlight-color: transparent;
+                -webkit-text-size-adjust: none
+            }
+
+            li,ol,ul {
+                list-style: none
+            }
+
+            a {
+                text-decoration: none;
+                color: #414a60
+            }
+
+            a:active,a:focus,a:hover,button,input,textarea {
+                outline: 0
+            }
+
+            a:hover {
+                color: #00d7c6;
+                text-decoration: none;
+                -webkit-transition: all linear .2s;
+                transition: all linear .2s
+            }
+
+            img {
+                border: none
+            }
+
+            map area {
+                outline: 0
+            }
+
+            table {
+                border-collapse: collapse
+            }
+
+            body,button,input,option,select,td,textarea {
+                font-family: arial,verdana,helvetica,'PingFang SC','HanHei SC',STHeitiSC-Light,Microsoft Yahei,sans-serif;
+                -webkit-font-smoothing: antialiased
+            }
+
+            button,input[type=button],input[type=number],input[type=password],input[type=search],input[type=submit],input[type=tel],input[type=text],textarea {
+                -webkit-appearance: none
+            }
+
+            body {
+                background: #f2f2f5;
+                min-width: 1170px;
+                line-height: 26px;
+                color: #414a60;
+                font-size: 14px
+            }
+
+            body,html {
+                height: 100%
+            }
+
+            .clearfix {
+                zoom:1 }
+
+            .clearfix:after {
+                content: '';
+                display: block;
+                overflow: hidden;
+                visibility: hidden;
+                clear: both
+            }
+
+            .resume {
+                padding: 28px 0 0;
+                background-color: #fff;
+                max-width: 960px;
+                margin: auto;
+            }
+
+            .resume .update-time,.resume .show-time {
+                font-size: 12px;
+                color: #9fa3b0;
+                padding: 0 38px 30px
+            }
+
+            .resume .update-time {
+                display: none;
+            }
+
+            .resume-item {
+                position: relative;
+                padding: 0 38px
+            }
+
+            .resume-item .info-labels .vline {
+                margin: 0 20px
+            }
+
+            .resume-item .name {
+                font-weight: 400
+            }
+
+            .resume-item .name:hover,.resume-item .title:hover {
+                display: block
+            }
+
+            .resume-item .title {
+                border-bottom: 1px #f2f3f3 solid;
+                font-size: 16px;
+                padding: 20px 0 15px;
+                font-weight: 400
+            }
+
+            .resume-item .figure,.resume-item .figure img {
+                width: 80px;
+                height: 80px;
+                border-radius: 100%;
+                margin-left: 30px;
+            }
+
+            .item-form {
+                display: block;
+            }
+
+            .history-item {
+                padding-bottom: 15px;
+                position: relative
+            }
+
+            .history-item .text {
+                padding-top: 10px
+            }
+
+            .history-item .text h4 {
+                position: relative;
+                margin-bottom: 15px
+            }
+
+            .history-item .text h4:before {
+                content: '';
+                position: absolute;
+                width: 5px;
+                height: 5px;
+                background: #ddd;
+                border-radius: 100%;
+                top: 9px;
+                left: -22px
+            }
+
+            .history-item .tags {
+                margin-top: 15px
+            }
+
+            .history-item .tags span {
+                display: inline-block;
+                border: 1px #cfd1d7 solid;
+                border-radius: 15px;
+                margin-right: 12px;
+                color: #9fa3b0;
+                font-size: 12px;
+                line-height: 18px;
+                padding: 0 15px
+            }
+
+            .info-labels .label-text {
+                display: inline-block;
+                vertical-align: middle
+            }
+
+            .fz-resume {
+                width: 24px;
+                height: 24px;
+                background: url(/frontend/material-library/icons.png) no-repeat;
+                display: inline-block;
+                vertical-align: middle
+            }
+
+            .fz-female {
+                background-position: 0 0;
+                vertical-align: top
+            }
+
+            .fz-male {
+                background-position: -24px 0;
+                vertical-align: top
+            }
+
+            .fz-experience {
+                background-position: 4px -477px
+            }
+
+            .fz-degree {
+                background-position: 2px -507px
+            }
+
+            .fz-status {
+                background-position: -26px -478px
+            }
+
+            .fz-tel {
+                background-position: -25px -506px
+            }
+
+            .fz-mail {
+                background-position: 4px -535px
+            }
+
+            .fz-weixin {
+                background-position: -28px -586px
+            }
+
+            .fz-job {
+                background-position: -25px -535px
+            }
+
+            .fz-salary {
+                background-position: 2px -561px
+            }
+
+            .fz-industry {
+                background-position: -26px -561px
+            }
+
+            .fz-place {
+                background-position: 2px -585px
+            }
+
+            .fz-close {
+                background-position: 6px -696px;
+                float: right
+            }
+
+            .fz-info {
+                background-position: 0 -54px
+            }
+
+            .fz-contact {
+                background-position: -1px -620px
+            }
+
+            .fz-adventage {
+                background-position: 0 -109px
+            }
+
+            .fz-positon {
+                background-position: 0 -168px
+            }
+
+            .fz-history {
+                background-position: 0 -225px
+            }
+
+            .fz-project {
+                background-position: 0 -283px
+            }
+
+            .fz-eaducation {
+                background-position: 0 -339px
+            }
+
+            .fz-edit {
+                background-position: 5px -29px
+            }
+
+            .fz-add {
+                background-position: 6px -662px
+            }
+
+            .fz-socal {
+                background-position: 0 -399px
+            }
+
+            .fz-delete {
+                background-position: 3px -739px
+            }
+
+            .span-wechat {
+                width: 250px;
+                white-space: nowrap;
+                text-overflow: ellipsis;
+                overflow: hidden
+            }
+
+            .item-primary {
+                position: relative
+            }
+
+            .history-education,.history-project {
+                position: relative;
+                padding-left: 30px;
+                overflow: hidden
+            }
+
+            .history-education:before,.history-project:before {
+                content: '';
+                display: block;
+                position: absolute;
+                border-left: 1px #eee dashed;
+                width: 0;
+                top: 30px;
+                left: 10px;
+                bottom: 36px
+            }
+
+            .history-education h4.name,.history-project h4.name {
+                font-size: 16px;
+                font-weight: 400;
+                position: relative;
+                display: inline-block
+            }
+
+            .history-education h4.name:before,.history-project h4.name:before {
+                content: '';
+                position: absolute;
+                width: 7px;
+                height: 7px;
+                background: #fff;
+                border: 1px #18c3b1 solid;
+                border-radius: 100%;
+                top: 9px;
+                left: -24px
+            }
+
+            .history-company,.history-education,.history-project {
+                padding-top: 20px
+            }
+
+            .resume-item .period {
+                float: right;
+                color: #9fa3b0;
+                font-size: 12px
+            }
+
+            .social-account {
+                padding-bottom: 28px
+            }
+
+            .account-item {
+                margin-top: 24px
+            }
+
+            .account-item img {
+                width: 30px;
+                height: 30px;
+                border-radius: 100%;
+                margin-right: 24px;
+                vertical-align: middle
+            }
+
+            .account-item>span {
+                width: 380px;
+                overflow: hidden;
+                display: inline-block;
+                text-overflow: ellipsis;
+                white-space: nowrap;
+                vertical-align: middle
+            }
+
+            .tag {
+                display: block;
+            }
+
+            .tag-item {
+                display: inline-block;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="resume">
+            <div class="update-time">最后更新 2017.09.25 11:09</div>
+            <div class="resume-box">
+                <div class="resume-item" id="resume-userinfo">
+                    <div class="item-primary">
+                        <div class="figure clearfix">
+                            <img src="/frontend/material-library/me.jpg" class="avatar">
+                        </div>
+                        <h2 class="name">
+                            周国强（花名秀才）<i class="fz-resume fz-male"></i>
+                        </h2>
+                        <div class="info-labels">
+                            <p class="row-base">
+                                <span class="label-text">
+                                    <i class="fz-resume fz-experience"></i>
+                                    7年工作经验
+                                </span>
+                                <em class="vline"></em>
+                                <span class="label-text">
+                                    <i class="fz-resume fz-degree"></i>
+                                    本科学历
+                                </span>
+                                <em class="vline"></em>
+                                <span class="label-text">
+                                    <i class="fz-resume fz-status"></i>
+                                    在职-考虑机会
+                                </span>
+                            </p>
+                            <p class="row-contact">
+                                <span class="label-text span-wechat">
+                                    <i class="fz-resume fz-weixin"></i>
+                                    nagexiucai
+                                </span>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="item-form"></div>
+            </div>
+            <div class="resume-item" id="resume-summary">
+                <div class="item-primary">
+                    <h3 class="title">优势</h3>
+                    <div class="text">
+                        <div class="tag">精通Python、WxPython、Tornado，TDD、DDD</div>
+                        <div class="tag">
+                            熟悉C、Java、Javascript、HTML、CSS，
+                            <div>
+                                <div class="tag">
+                                    <div class="tag-item">Django、MySQL/SQLite、SVN/Git，</div>
+                                    <div class="tag-item">LibVirt/QEMU-KVM，Openstack、Ceph，</div>
+                                    <div class="tag-item">TensorFlow-GPU、CNN/VGG，</div>
+                                    <div class="tag-item">MVC，</div>
+                                    <div classs="tag-item">Agile</div>
+                                </div>
+                                <div class="tag">目前在做教育行业AI产品</div>
+                                <div class="tag">五年项目管理经验</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="item-form"></div>
+            <div class="resume-item" id="resume-purpose">
+                <div class="item-primary">
+                    <h3 class="title">求职意向</h3>
+                    <div class="info-labels">
+                        <div>
+                            <span class="label-text">
+                                <i class="fz-resume fz-job"></i>
+                                Python
+                            </span>
+                            <em class="vline"></em>
+                            <span class="label-text">
+                                <i class="fz-resume fz-salary"></i>
+                                18k-25k 
+                            </span>
+                            <em class="vline"></em>
+                            <span class="label-text">
+                                <i class="fz-resume fz-industry"></i>
+                                不限
+                            </span>
+                            <em class="vline"></em>
+                            <span class="label-text">
+                                <i class="fz-resume fz-place"></i>
+                                西安
+                            </span>
+                        </div>
+                    </div>
+                </div>
+                <div class="item-form"></div>
+            </div>
+            <div class="resume-item" id="resume-history">
+                <div class="item-primary">
+                    <h3 class="title">工作经历</h3>
+                    <div class="history-project">
+                        <div class="history-item">
+                            <span class="period">2016.04-至今</span>
+                            <h4 class="name">北京西普阳光教育</h4>
+                            <div class="text">
+                                <h4>
+                                    研发<em class="vline"></em>
+                                    云平台软件开发
+                                </h4>
+                                <div class="text">
+                                    <h4>工作内容</h4>
+                                    <p>
+                                        Openstack、Ceph/GlusterFS、Saltstack、Kolla/Docker<br>
+                                        私有云平台<br>
+                                        镜像共享存储、根据历史统计的预创建<br>
+                                        超融合一体机方案<br>
+                                        设计适合高校实验的云平台，频繁批量创建、启动，删除VM，通过Guacamole录像、模式识别以及OCR监控学员实验效果，通过Sahara部署大数据实验<br>
+                                        HTML5竞赛战况2D看板<br>
+                                        开发基于FeiYang的CoursewareCAD<br>适合ML/AI的视频检索专利
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="text">
+                                <h4>
+                                    <span>Linux</span>
+                                    <span>Python</span>
+                                    <span>解决方案</span>
+                                </h4>
+                            </div>
+                        </div>
+                        <div class="history-item">
+                            <span class="period">2014.12-2016.03</span>
+                            <h4 class="name">北京易讯通</h4>
+                            <div class="text">
+                                <h4>
+                                    研发<em class="vline"></em>
+                                    软件开发
+                                </h4>
+                                <div class="text">
+                                    <h4>工作内容</h4>
+                                    <p>
+                                        Openstack、Ceph、DevOps<br>
+                                        主要语言是Python，C，Shell<br>基于Ceph的分布式存储，支撑Openstack/oVirt等云计算
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="text">
+                                <h4>
+                                    <span>Python</span>
+                                    <span>后端开发</span>
+                                    <span>解决方案</span>
+                                </h4>
+                            </div>
+                        </div>
+                        <div class="history-item">
+                            <span class="period">2012.05-2014.12</span>
+                            <h4 class="name">中软国际科技服务</h4>
+                            <div class="text">
+                                <h4>
+                                    研发<em class="vline"></em>
+                                    嵌入式软件研发
+                                </h4>
+                                <div class="text">
+                                    <h4>工作内容</h4>
+                                    <p>数据分析和自动化测试工具：python/wxpython/django</p>
+                                </div>
+                                <div class="text">
+                                    <h4>工作业绩</h4>
+                                    <p>
+                                        从参与到主导设计MBSC集成工具，极大的提升客户版本开发的效率，赢得一致好评，项目组因此获得当年离岸远程独立交付标杆荣誉<br>
+                                        参与设计的2G自动测试工具，将全量测试时间从十多个小时缩短到半小时以内，帮助客户赢得最佳效率提升奖<br>
+                                        培养应届生三名，迅速成长为技术骨干
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="text">
+                                <h4>
+                                    <span>Python</span>
+                                    <span>数据挖掘</span>
+                                    <span>后端开发</span>
+                                </h4>
+                            </div>
+                        </div>
+                        <div class="history-item">
+                            <span class="period">2010.07-2012.05</span>
+                            <h4 class="name">西安集智医疗</h4>
+                            <div class="text">
+                                <h4>
+                                    研发<em class="vline"></em>
+                                    嵌入式
+                                </h4>
+                                <div class="text">
+                                    <h4>工作内容</h4>
+                                    <p>参与小型移动骨科C型臂X光机控制系统设计，整机调试送检，生产员工培训</p>
+                                </div>
+                            </div>
+                            <div class="text">
+                                <h4>
+                                    <span>单片机</span>
+                                    <span>ARM</span>
+                                    <span>C语言</span>
+                                </h4>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="item-form"></div>
+            </div>
+            <div class="resume-item" id="resume-project">
+                <div class="item-primary">
+                    <h3 class="title">项目经验</h3>
+                    <div class="history-project">
+                        <div class="history-item">
+                            <div class="text">
+                                <h4>仅谈论<em class="vline"></em>与雇主商业机密无关的</h4>
+                                <p><a href="https://nagexiucai.github.io/">个人兴趣清单（nagexiucai.github.io）</a></p>
+                            <div>
+                        </div>
+                    </div>
+                </div>
+                <div class="item-form"></div>
+            </div>
+            <div class="resume-item" id="resume-education">
+                <div class="item-primary">
+                    <h3 class="title">教育经历</h3>
+                    <div class="history-education">
+                        <div class="history-item">
+                            <span class="period">2006-2010</span>
+                            <h4 class="name">西安电子科技大学</h4>
+                            <div class="text">
+                                <h4>
+                                    生物医学工程<em class="vline"></em>
+                                    本科
+                                </h4>
+                                <p>学习电路及软件设计，图像及生物电信号处理</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="item-form"></div>
+            </div>
+            <div class="resume-item" id="resume-social">
+                <div class="item-primary">
+                    <h3 class="title">社交账号</h3>
+                    <div class="social-account">
+                        <div class="account-item">
+                            <img src="/frontend/material-library/sns.png">
+                            <span>
+                                <a href="http://www.nagexiucai.com/">团伙窝点（nagexiucai.com）</a>
+                            </span>
+                        </div>
+                        <div class="account-item">
+                            <img src="/frontend/material-library/sns.png">
+                            <span>
+                                <a href="http://www.zhouguoqiang.cn/">个人小站（zhouguoqiang.cn）</a>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+                <div class="item-form"></div>
+            </div>
+        </div>
+    </body>
+</html>
