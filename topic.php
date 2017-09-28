@@ -1,16 +1,42 @@
 <?php
 
 include "./backend/bra.php";
+include "./backend/parsedown.php";
 
 class Topic extends Bra {
     public function __construct()
     {
         $this->title = $this->title."|".$_GET["title"];
-        $this->svg = "/frontend/material-library/".$_GET["svg"].".svg";
-        if (!is_file(".".$this->svg))
+        // TODO: 根据海报后缀类型参数路由
+
+        if (isset($_GET["svg"]))
         {
-            $this->svg = "/frontend/material-library/default.svg";
+            $this->svg = "/frontend/material-library/".$_GET["svg"].".svg";
+            if (!is_file(".".$this->svg))
+            {
+                $this->svg = "/frontend/material-library/default.svg";
+            }
+            $this->poster = "<object data='$this->svg' type='image/svg+xml'></object>";
         }
+        elseif (isset($_GET["md"]))
+        {
+            $this->md = "./frontend/material-library/".$_GET["md"].".md";
+            if (!is_file($this->md))
+            {
+                $this->md = "./frontend/material-library/default.md";
+            }
+            $parsedown = new Parsedown();
+            //读取二进制文件需要将第二个参数设置成'rb'
+            $handle = fopen($this->md, "r");
+            //通过filesize获得文件大小并将整个文件一下子读到一个字符串中
+            $this->poster = "<div class='markdown'>".$parsedown->text(fread($handle, filesize($this->md)))."</div>";
+            fclose($handle);
+        }
+        else
+        {
+            $this->poster = "<br/><h1>链接有损！</h1><br/>";
+        }
+
         $this->content = "
 <div class='fullscreen'>
 <div class='logo-in-wechat'>
@@ -50,10 +76,16 @@ class Topic extends Bra {
             line-height: 26px;
             border-bottom: 20px solid black;
         }
+        .markdown {
+            text-align: left;
+        }
+        .markdown p a {
+            text-decoration-line: none;
+        }
     </style>
     <p>长按二维码关注</p>
     <img src='/frontend/common/public-wechat.jpg' alt='关注二维码'>
-    <object data='$this->svg' type='image/svg+xml'></object>
+    $this->poster
     <div id='amount'></div>
     <p>长按二维码打赏</p>
     <img src='/frontend/common/reward-wechat.png' alt='打赏二维码'>
