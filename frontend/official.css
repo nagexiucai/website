@@ -33,3 +33,9 @@ a {
 #topic p a {
     font-size: 30px;
 }
+
+.fullscreen {
+    background-image: url(/frontend/material-library/logo-raw-alternative-plus.png);
+    background-repeat: no-repeat;
+    background-position: center;
+}

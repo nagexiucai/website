@@ -39,13 +39,13 @@ class Topic extends Bra {
 
         $this->content = "
 <div class='fullscreen'>
-<div class='logo-in-wechat'>
-    <img src='/frontend/common/logo.jpg'>
+<div class='logo'>
+    <img src='/frontend/material-library/logo-raw-alternative-plus.png'>
 </div>
 <div class='topic'>
     <style type='text/css'>
-        .logo-in-wechat {
-            display:none;
+        .logo {
+            display:block;
         }
         li {
             list-style-type:none;
@@ -78,6 +78,7 @@ class Topic extends Bra {
         }
         .markdown {
             text-align: left;
+            padding: 0 20px;
         }
         .markdown p a {
             text-decoration-line: none;
