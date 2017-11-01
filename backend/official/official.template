@@ -1,16 +1,31 @@
 <div class="fullscreen">
     <div id="navigator">
-        <a href="/">首页</a>
-        <a href="javascript:topic();">话题</a>
-        <a href="http://github.com/nagexiucai/" target="_blank">项目</a>
-        <a href="/about.php?target=official" target="_blank">关于</a>
-        <div id="topic" style="display:none;">
+        <div class="entry">
+            <a href="javascript:coursef();">教程</a>
+            <a href="javascript:topicf();">话题</a>
+            <a href="http://github.com/nagexiucai/" target="_blank">项目</a>
+            <a href="/about.php?target=official" target="_blank">关于</a>
+        </div>
+        <div class="dropdown" id="course" style="display:none;">
+            <p><a href="http://www.mypython.cn/" target="_blank">Python</a></p>
+            <p><a href="javascript:void(0);" target="_blank">OpenStack</a></p>
+            <p><a href="javascript:void(0);" target="_blank">Go</a></p>
+            <p><a href="javascript:void(0);" target="_blank">Docker</a></p>
+            <p><a href="javascript:void(0);" target="_blank">JavaScript</a></p>
+            <p><a href="javascript:void(0);" target="_blank">Jquery</a></p>
+            <p><a href="javascript:void(0);" target="_blank">Java</a></p>
+            <p><a href="javascript:void(0);" target="_blank">Spring</a></p>
+            <p><a href="javascript:void(0);" target="_blank">PHP</a></p>
+            <p><a href="javascript:void(0);" target="_blank">WordPress</a></p>
+            <p><a href="javascript:$coursef();">^</a></p>
+        </div>
+        <div class="dropdown" id="topic" style="display:none;">
             <p><a href="/topic.php?title=ML-in-Ten-Pictures&md=ml-in-ten-pictures" target="_blank">机器学习十张图</a></p>
             <p><a href="/topic.php?title=IT教育云框架&svg=it-education-private-cloud" target="_blank">IT教育私有云</a></p>
             <p><a href="/topic.php?title=AI基础学科&svg=subjects-under-ai" target="_blank">人工智能基础学科</a></p>
             <p><a href="/topic.php?title=IOT技术路线图&svg=iot" target="_blank">物联网技术栈</a></p>
             <p><a href="/topic.html" target="_blank">更多精彩……</a></p>
-            <p><a href="javascript:$topic();">^</a></p>
+            <p><a href="javascript:$topicf();">^</a></p>
         </div>
     </div>
     <a href="/biz.html"><canvas id="scratch" style="width:400px;height:400px;"></canvas></a>

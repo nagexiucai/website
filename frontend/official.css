@@ -10,6 +10,7 @@ a {
     width: 100%;
     min-width: 480px;
     background-color: black;
+    overflow-y: auto;max-height: calc(100% - 20px);
 }
 
 #navigator a {
@@ -19,10 +20,29 @@ a {
     color: white;
 }
 
+.entry {
+    line-height: 60px;
+    height: 60px;
+}
+
 #scratch {
     position: relative;
     top: 50%;
     transform: translateY(-50%);
+}
+
+#course p {
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
+#course p a {
+    font-size: 30px;
+    color: gray;
+}
+
+#course p a:hover {
+    color: white;
 }
 
 #topic p {
@@ -32,10 +52,19 @@ a {
 
 #topic p a {
     font-size: 30px;
+    color: gray;
+}
+
+#topic p a:hover {
+    color: white;
 }
 
 .fullscreen {
     background-image: url(/frontend/material-library/logo-raw-alternative-plus.png);
     background-repeat: no-repeat;
     background-position: center;
+}
+
+.dropdown {
+    border-top: 1px solid silver;
 }

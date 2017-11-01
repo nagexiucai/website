@@ -331,11 +331,21 @@ window.onload = function() {
 };
 // end spider
 
-function topic() {
-    var topic = document.getElementById('topic');
+var topic = document.getElementById('topic');
+var course = document.getElementById('course')
+
+function coursef() {
+    $topicf();
+    course.style.display = 'block';
+}
+function $coursef() {
+    course.style.display = 'none';
+}
+
+function topicf() {
+    $coursef();
     topic.style.display = 'block';
 };
-function $topic() {
-    var topic = document.getElementById('topic');
+function $topicf() {
     topic.style.display = 'none';
 }
