@@ -10,7 +10,8 @@ a {
     width: 100%;
     min-width: 480px;
     background-color: black;
-    overflow-y: auto;max-height: calc(100% - 20px);
+    overflow-y: auto;
+    max-height: calc(100% - 20px);
 }
 
 #navigator a {
