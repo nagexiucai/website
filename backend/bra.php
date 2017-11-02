@@ -11,6 +11,23 @@ class Bra {
     public $content="欢迎来到那个秀才的站点！<br/>";
     public $bscript="";
 
+    public $MYSQL = null;
+
+    public function __construct()
+    {
+        $this->MYSQL = new mysqli("qdm-048.hichina.com","qdm0480431","Qdm0480431dotcom","qdm0480431_db","3306");
+        if ($this->MYSQL->connect_error) {
+            die("数据库连接失败：".$this->MYSQL->connect_error);
+        }
+    }
+
+    public function __destruct()
+    {
+        if (!$this->MYSQL->connect_error) {
+            mysqli_close($this->MYSQL);
+        }
+    }
+
     function html() {
         //echo self::DOCTYPE; // TODO: why style breaks with it
         echo "<html>";
