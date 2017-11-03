@@ -23,7 +23,7 @@ class Bra {
 
     public function __destruct()
     {
-        if (!$this->MYSQL->connect_error) {
+        if ($this->MYSQL) {
             mysqli_close($this->MYSQL);
         }
     }
