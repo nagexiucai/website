@@ -15,7 +15,7 @@ class Bra {
 
     public function __construct()
     {
-        $this->MYSQL = new mysqli("qdm-048.hichina.com","qdm0480431","Qdm0480431dotcom","qdm0480431_db","3306");
+        $this->MYSQL = new mysqli("host","username","password","database","port");
         if ($this->MYSQL->connect_error) {
             die("数据库连接失败：".$this->MYSQL->connect_error);
         }
