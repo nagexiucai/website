@@ -108,7 +108,7 @@
 
 		class SuperMan(ChairMan, MaNong):
 
-			def Fly(self) # Q：既是领导又会写代码的超人怎么飞？
+			def Fly(self): # Q：既是领导又会写代码的超人怎么飞？
 				print "hula~" # A：呼啦-呼啦
 
 - 搭配着装相得益彰：挖空心思吸引眼球
