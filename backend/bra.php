@@ -3,7 +3,7 @@
 
 class Bra {
     const DOCTYPE = "<!DOCTYPE html>";
-    const BEIAN = "<div id='beian'><a href='http://www.miitbeian.gov.cn/' target='_blank'>陕ICP备14011708号</a><a href='http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=61019002000333' target='_blank'><span></span>陕公网安备61019002000333号</a></div>";
+    const BEIAN = "<div id='beian'><a href='http://www.miitbeian.gov.cn/' target='_blank'>陕ICP备14011708号</a><a href='http://www.beian.gov.cn/' target='_blank'><span></span>陕公网安备61019002000333号</a></div>";
     public $meta="<meta charset='UTF-8'/><meta name='keywords' content='那个秀才 云计算 大数据 神经网络 机器学习 人工智能 物联网 区块链 Python JavaScript IOT AI 3D GIS OpenStack Docker BlockChain'/><meta name='description' content='那个秀才'/>";
     public $link="";
     public $hscript="";
