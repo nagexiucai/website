@@ -74,7 +74,10 @@
 
 有句名言：
 
-	I admire the elegance of your method of computation; it must be nice to ride through these fields upon the horse of true mathematics while the like of us have to make our way laboriously on foot. — Albert Einstein
+	I admire the elegance of your method of computation;
+	it must be nice to ride through these fields upon the horse of true mathematics
+	while the like of us have to make our way laboriously on foot.
+	— Albert Einstein
 
 就连爱因斯坦都如此盛赞数学之美：**数学高超如骑兵奔驰、数学渣渣似步兵难行。**
 
