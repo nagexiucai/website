@@ -178,5 +178,5 @@
 - 做好时间规划
 
 ---
-[a]:./illustration/xiyou/0.png
+[a]:./illustration/teaching/5.png
 [0]:https://github.com/mobimedi/membership
