@@ -48,8 +48,8 @@
 .views {
     margin-left:111px;
     margin-right:0;
-    height:100%;
     background-image:url("/frontend/material-library/logo-ebiz.png");
+    background-attachment: fixed;
 }
 
 a {
@@ -79,4 +79,8 @@ dd,
 img {
     display:block;
     margin:0 auto;
+}
+
+p {
+    margin: 22px 0 0 0;
 }
