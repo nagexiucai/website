@@ -3,7 +3,7 @@
         <div class="entry">
             <a href="javascript:coursef();">教程</a>
             <a href="javascript:topicf();">话题</a>
-            <a href="http://github.com/nagexiucai/" target="_blank">项目</a>
+            <a href="https://github.com/nagexiucai/" target="_blank">项目</a>
             <a href="/about.php?target=official" target="_blank">关于</a>
         </div>
         <div class="dropdown" id="course" style="display:none;">
@@ -16,7 +16,7 @@
             <p><a href="javascript:void(0);" target="_blank">Java</a></p>
             <p><a href="javascript:void(0);" target="_blank">Spring</a></p>
             <p><a href="javascript:void(0);" target="_blank">PHP</a></p>
-            <p><a href="javascript:void(0);" target="_blank">WordPress</a></p>
+            <p><a href="https://github.com/JulialangOrgCN/julialang.org.cn" target="_blank">Laravel</a></p>
             <p><a href="javascript:$coursef();">^</a></p>
         </div>
         <div class="dropdown" id="topic" style="display:none;">
